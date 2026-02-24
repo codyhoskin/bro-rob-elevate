@@ -1,5 +1,4 @@
 import { Instagram, Twitter, Youtube, Mail } from "lucide-react";
-import logo from "@/assets/logo.png";
 
 const LINKS = [
   { label: "Programs", href: "#" },
@@ -21,13 +20,11 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-30" />
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
-          {/* Logo */}
-          <div className="text-center sm:text-left flex flex-col items-center sm:items-start">
-            <img src={logo} alt="Your Bro Rob Fitness" className="h-12 object-contain mb-2" />
+          <div className="text-center sm:text-left">
+            <h3 className="font-display text-2xl text-gradient-brand tracking-wide">Your Bro Rob</h3>
             <p className="text-muted-foreground text-xs mt-1 italic">"Discipline Builds Champions"</p>
           </div>
 
-          {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6">
             {LINKS.map((link) => (
               <a
@@ -40,7 +37,6 @@ const Footer = () => {
             ))}
           </nav>
 
-          {/* Socials */}
           <div className="flex gap-4">
             {SOCIALS.map((social) => (
               <a

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import logo from "@/assets/logo.png";
 
 const Hero = () => {
   const [simpHover, setSimpHover] = useState(false);
@@ -19,15 +18,16 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center"
       >
-        {/* Logo */}
-        <motion.img
-          src={logo}
-          alt="Your Bro Rob Fitness"
-          className="h-20 sm:h-28 md:h-32 mx-auto mb-8 object-contain"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-        />
+        {/* Brand name */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className="text-muted-foreground font-body text-sm sm:text-base tracking-[0.3em] uppercase mb-6"
+        >
+          <span className="text-gradient-brand font-display text-lg sm:text-xl tracking-wider">Your Bro Rob</span>
+          <span className="mx-2">presents</span>
+        </motion.p>
 
         {/* Main headline */}
         <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-6">
@@ -48,7 +48,7 @@ const Hero = () => {
               className="text-gradient-rainbow font-fun inline-block cursor-default"
               style={{ transform: "rotate(-3deg)" }}
             >
-              Simp 😔
+              Simp <span className="inline-block text-4xl sm:text-5xl md:text-6xl" role="img" aria-label="sad face">☹️</span>
             </motion.span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">
@@ -65,7 +65,7 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 300 }}
               className={`text-gradient-brand font-display inline-block cursor-default transition-all duration-300 ${studHover ? "drop-shadow-[0_0_30px_hsl(var(--brand-red)/0.5)]" : ""}`}
             >
-              STUD 😎
+              STUD <span className="inline-block text-4xl sm:text-5xl md:text-6xl" role="img" aria-label="cool face">💪</span>
             </motion.span>
           </span>
         </h1>
