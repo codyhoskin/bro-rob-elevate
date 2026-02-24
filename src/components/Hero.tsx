@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import logo from "@/assets/logo.png";
 
 const Hero = () => {
   const [simpHover, setSimpHover] = useState(false);
@@ -18,15 +19,15 @@ const Hero = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10 text-center"
       >
-        {/* Brand name */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-muted-foreground font-body text-sm tracking-[0.3em] uppercase mb-6"
-        >
-          Your Bro Rob Presents
-        </motion.p>
+        {/* Logo */}
+        <motion.img
+          src={logo}
+          alt="Your Bro Rob Fitness"
+          className="h-20 sm:h-28 md:h-32 mx-auto mb-8 object-contain"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+        />
 
         {/* Main headline */}
         <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-6">

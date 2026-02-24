@@ -1,4 +1,5 @@
 import { Instagram, Twitter, Youtube, Mail } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const LINKS = [
   { label: "Programs", href: "#" },
@@ -21,8 +22,8 @@ const Footer = () => {
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
           {/* Logo */}
-          <div className="text-center sm:text-left">
-            <h3 className="font-display text-2xl text-gradient-brand tracking-wide">Your Bro Rob</h3>
+          <div className="text-center sm:text-left flex flex-col items-center sm:items-start">
+            <img src={logo} alt="Your Bro Rob Fitness" className="h-12 object-contain mb-2" />
             <p className="text-muted-foreground text-xs mt-1 italic">"Discipline Builds Champions"</p>
           </div>
 
@@ -46,7 +47,7 @@ const Footer = () => {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
-                className="w-9 h-9 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200"
+                className="w-9 h-9 rounded-full bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-all duration-200 hover:scale-110"
               >
                 <social.icon className="w-4 h-4" />
               </a>
