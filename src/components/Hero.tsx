@@ -6,11 +6,11 @@ const Hero = () => {
   const [studHover, setStudHover] = useState(false);
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden motion-streaks">
+    <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden comic-speed-lines comic-halftone">
       {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-dark" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-brand-red/5 blur-[120px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-brand-blue/5 blur-[120px]" />
+      <div className="absolute inset-0 bg-gradient-dark opacity-80" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-brand-red/8 blur-[120px]" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-brand-blue/8 blur-[120px]" />
 
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -30,7 +30,7 @@ const Hero = () => {
         </motion.p>
 
         {/* Main headline */}
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-6">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-6 comic-text-stroke">
           <span className="block text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl mb-2 tracking-wider">
             Go From
           </span>

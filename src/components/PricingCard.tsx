@@ -130,9 +130,9 @@ const PricingCard = () => {
   const durations: Duration[] = ["monthly", "3month", "6month", "1year"];
 
   return (
-    <section className="relative px-4 py-20 sm:py-28">
-      <div className="absolute inset-0 bg-gradient-dark" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/3 blur-[150px]" />
+    <section className="relative px-4 py-20 sm:py-28 comic-halftone">
+      <div className="absolute inset-0 bg-gradient-dark opacity-80" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/5 blur-[150px]" />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
@@ -147,7 +147,7 @@ const PricingCard = () => {
             rotate: [0, 0.15, -0.15, 0],
           } : {}}
           transition={isMaxCommit ? { repeat: Infinity, duration: 2.5, ease: "easeInOut" } : {}}
-          className={`glass-card rounded-2xl p-8 sm:p-10 transition-all duration-700 ${CARD_THEMES[duration]} shimmer`}
+          className={`glass-card comic-panel rounded-2xl p-8 sm:p-10 transition-all duration-700 ${CARD_THEMES[duration]} shimmer`}
         >
           {/* Header */}
           <div className="text-center mb-10">

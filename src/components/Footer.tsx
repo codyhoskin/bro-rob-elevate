@@ -16,7 +16,7 @@ const SOCIALS = [
 
 const Footer = () => {
   return (
-    <footer className="relative border-t border-border/50 bg-background">
+    <footer className="relative border-t-2 border-foreground/10 bg-background/80 backdrop-blur-sm comic-halftone">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-30" />
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
