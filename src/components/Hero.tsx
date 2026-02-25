@@ -49,7 +49,11 @@ const Hero = () => {
               style={{ transform: "rotate(-3deg)" }}
             >
               Simp
-              <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-muted/40 border-2 border-muted-foreground/20 text-3xl sm:text-4xl md:text-5xl align-middle ml-1" role="img" aria-label="sad face">😢</span>
+              <span className="inline-flex items-center justify-center w-[0.85em] h-[0.85em] rounded-full align-middle ml-1 relative">
+                <span className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 via-blue-500 to-indigo-700 opacity-90" />
+                <span className="absolute inset-0 rounded-full border-[3px] border-muted-foreground/30" />
+                <span className="relative text-[0.45em] leading-none" role="img" aria-label="sad face">😢</span>
+              </span>
             </motion.span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">
