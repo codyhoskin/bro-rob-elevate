@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import Hero from "@/components/Hero";
 import PricingCard from "@/components/PricingCard";
+import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -25,7 +26,7 @@ const Index = () => {
           ref={imgRef}
           src="/images/comic-story.jpg"
           alt=""
-          className="absolute right-[-5%] top-[5%] h-[70%] w-auto object-contain opacity-[0.12] pointer-events-none select-none will-change-transform"
+          className="absolute right-[-5%] top-[5%] h-[70%] w-auto object-contain opacity-[0.18] pointer-events-none select-none will-change-transform"
           style={{ transform: "rotate(-8deg)" }}
           loading="lazy"
         />
@@ -34,6 +35,7 @@ const Index = () => {
         <Hero />
         <PricingCard />
       </div>
+      <AppDownload />
       <Footer />
     </div>
   );
