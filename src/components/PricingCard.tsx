@@ -120,6 +120,12 @@ const FeatureItem = ({ feature, index }: { feature: typeof FEATURES[0]; index: n
 const PricingCard = () => {
   const [duration, setDuration] = useState<Duration>("monthly");
   const [payStyle, setPayStyle] = useState<PayStyle>("monthly");
+  const isMonthly = duration === "monthly";
+
+  // Reset to monthly pay style when 1-month is selected
+  useEffect(() => {
+    if (isMonthly) setPayStyle("monthly");
+  }, [isMonthly]);
 
   const pricing = PRICING[duration];
   const monthlyRate = payStyle === "upfront" ? pricing.upfront : pricing.monthly;
@@ -209,21 +215,22 @@ const PricingCard = () => {
           )}
 
           {/* Pay Style Toggle - Integrated labels */}
-          <div className="mb-10">
+          <div className={`mb-10 transition-opacity duration-300 ${isMonthly ? "opacity-40 pointer-events-none" : ""}`}>
             <div className="flex items-center justify-center gap-3">
               <span
                 className={`text-sm font-semibold transition-colors duration-300 cursor-pointer ${
                   payStyle === "monthly" ? "text-foreground" : "text-muted-foreground/50"
                 }`}
-                onClick={(e) => { e.stopPropagation(); setPayStyle("monthly"); }}
+                onClick={(e) => { e.stopPropagation(); if (!isMonthly) setPayStyle("monthly"); }}
               >
                 Pay Monthly
               </span>
               <button
+                disabled={isMonthly}
                 onClick={(e) => { e.stopPropagation(); setPayStyle(payStyle === "monthly" ? "upfront" : "monthly"); }}
-                className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
-                  payStyle === "upfront" ? "bg-brand-blue" : "bg-muted/60"
-                }`}
+                className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
+                  isMonthly ? "cursor-not-allowed" : "cursor-pointer"
+                } ${payStyle === "upfront" ? "bg-brand-blue" : "bg-muted/60"}`}
               >
                 <motion.span
                   className="block h-5 w-5 rounded-full bg-foreground shadow-lg pointer-events-none"
@@ -235,7 +242,7 @@ const PricingCard = () => {
                 className={`text-sm font-semibold transition-colors duration-300 cursor-pointer ${
                   payStyle === "upfront" ? "text-brand-blue" : "text-muted-foreground/50"
                 }`}
-                onClick={(e) => { e.stopPropagation(); setPayStyle("upfront"); }}
+                onClick={(e) => { e.stopPropagation(); if (!isMonthly) setPayStyle("upfront"); }}
               >
                 Pay In Full
                 <span className={`ml-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full transition-colors duration-300 ${
@@ -262,9 +269,9 @@ const PricingCard = () => {
                     className="font-display text-6xl sm:text-7xl text-foreground"
                     animate={{
                       textShadow: [
-                        "0 0 10px hsl(var(--brand-blue) / 0.15)",
-                        "0 0 30px hsl(var(--brand-blue) / 0.4)",
-                        "0 0 10px hsl(var(--brand-blue) / 0.15)",
+                        "0 0 8px hsl(210 40% 98% / 0.2), 0 0 20px hsl(210 40% 98% / 0.1)",
+                        "0 0 16px hsl(210 40% 98% / 0.4), 0 0 40px hsl(210 40% 98% / 0.15)",
+                        "0 0 8px hsl(210 40% 98% / 0.2), 0 0 20px hsl(210 40% 98% / 0.1)",
                       ],
                     }}
                     transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
