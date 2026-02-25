@@ -25,7 +25,7 @@ const Hero = () => {
           transition={{ delay: 0.2 }}
           className="text-muted-foreground font-body text-sm sm:text-base tracking-[0.3em] uppercase mb-6"
         >
-          <span className="text-gradient-brand font-display text-lg sm:text-xl tracking-wider">Your Bro Rob</span>
+          <span className="text-white font-display text-lg sm:text-xl tracking-wider drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]">Your Bro Rob</span>
           <span className="mx-2">presents</span>
         </motion.p>
 
