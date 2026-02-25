@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
           <div className="text-center sm:text-left flex flex-col items-center sm:items-start gap-2">
-            <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="w-16" />
+            <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="w-24" />
             <p className="text-muted-foreground text-xs italic">"Discipline Builds Champions"</p>
           </div>
 

@@ -6,9 +6,7 @@ const Hero = () => {
   const [studHover, setStudHover] = useState(false);
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-12 pb-16 overflow-hidden comic-speed-lines comic-halftone">
-      {/* Logo */}
-      <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="relative z-10 w-28 sm:w-36 mb-6 mx-auto" />
+    <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden comic-speed-lines comic-halftone">
 
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-dark opacity-80" />
