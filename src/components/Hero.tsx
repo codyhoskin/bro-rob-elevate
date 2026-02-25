@@ -46,12 +46,12 @@ const Hero = () => {
                   scale: [1, 0.97, 1],
                 } : {}}
                 transition={{ duration: 0.5 }}
-                className="text-gradient-rainbow font-fun inline-block cursor-default"
+                className="text-gradient-rainbow font-fun inline-block cursor-default pr-1"
                 style={{ transform: "rotate(-3deg)" }}
               >
               Simp
               </motion.span>
-              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-3 sm:ml-4" role="img" aria-label="sad face">😢</span>
+              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-2 sm:ml-3" role="img" aria-label="sad face">😢</span>
             </span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">
@@ -62,11 +62,19 @@ const Hero = () => {
             <motion.span
               onHoverStart={() => setStudHover(true)}
               onHoverEnd={() => setStudHover(false)}
-              animate={studHover ? {
-                scale: 1.08,
-              } : { scale: 1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className={`text-gradient-brand font-display inline-block cursor-default transition-all duration-300 ${studHover ? "drop-shadow-[0_0_30px_hsl(var(--brand-red)/0.5)]" : ""}`}
+              animate={{
+                scale: studHover ? 1.08 : 1,
+                textShadow: [
+                  "0 0 10px hsl(213 100% 52% / 0.4), 0 0 30px hsl(213 100% 52% / 0.2)",
+                  "0 0 20px hsl(213 100% 52% / 0.6), 0 0 50px hsl(213 100% 52% / 0.3), 0 0 80px hsl(213 100% 52% / 0.15)",
+                  "0 0 10px hsl(213 100% 52% / 0.4), 0 0 30px hsl(213 100% 52% / 0.2)",
+                ],
+              }}
+              transition={{
+                scale: { type: "spring", stiffness: 300 },
+                textShadow: { repeat: Infinity, duration: 2, ease: "easeInOut" },
+              }}
+              className="text-brand-blue font-display inline-block cursor-default"
             >
               STUD <span className="inline-block text-4xl sm:text-5xl md:text-6xl" role="img" aria-label="cool face">💪</span>
             </motion.span>
