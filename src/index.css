@@ -108,25 +108,41 @@
     box-shadow: 0 0 30px hsl(var(--brand-red) / 0.2), 0 0 60px hsl(var(--brand-blue) / 0.2);
   }
 
-  /* Commitment card themes */
+  /* Commitment card themes — progressive intensity */
   .card-theme-monthly {
-    border-color: hsl(var(--brand-red) / 0.25);
-    box-shadow: 0 0 30px hsl(var(--brand-red) / 0.08), inset 0 0 40px hsl(var(--brand-red) / 0.02);
+    border-color: hsl(var(--brand-red) / 0.3);
+    box-shadow:
+      0 0 40px hsl(var(--brand-red) / 0.1),
+      0 0 80px hsl(var(--brand-red) / 0.04),
+      inset 0 0 40px hsl(var(--brand-red) / 0.02);
   }
 
   .card-theme-3month {
-    border-color: hsl(var(--brand-red) / 0.15);
-    box-shadow: 0 0 40px hsl(var(--brand-red) / 0.06), 0 0 40px hsl(var(--brand-blue) / 0.06), inset 0 0 50px hsl(var(--brand-blue) / 0.02);
+    border-color: hsl(var(--brand-red) / 0.2);
+    box-shadow:
+      0 0 50px hsl(var(--brand-red) / 0.08),
+      0 0 50px hsl(var(--brand-blue) / 0.1),
+      0 0 100px hsl(var(--brand-blue) / 0.04),
+      inset 0 0 50px hsl(var(--brand-blue) / 0.03);
   }
 
   .card-theme-6month {
-    border-color: hsl(var(--brand-blue) / 0.35);
-    box-shadow: 0 0 50px hsl(var(--brand-blue) / 0.15), 0 0 80px hsl(var(--brand-blue) / 0.05), inset 0 0 60px hsl(var(--brand-blue) / 0.04);
+    border-color: hsl(var(--brand-blue) / 0.45);
+    box-shadow:
+      0 0 60px hsl(var(--brand-blue) / 0.2),
+      0 0 120px hsl(var(--brand-blue) / 0.08),
+      0 0 180px hsl(var(--brand-blue) / 0.03),
+      inset 0 0 60px hsl(var(--brand-blue) / 0.05);
   }
 
   .card-theme-1year {
-    border-color: hsl(var(--brand-blue) / 0.5);
-    box-shadow: 0 0 60px hsl(var(--brand-blue) / 0.25), 0 0 100px hsl(var(--brand-blue) / 0.1), 0 0 30px hsl(43 96% 56% / 0.1), inset 0 0 80px hsl(var(--brand-blue) / 0.06);
+    border-color: hsl(var(--brand-blue) / 0.6);
+    box-shadow:
+      0 0 80px hsl(var(--brand-blue) / 0.35),
+      0 0 150px hsl(var(--brand-blue) / 0.15),
+      0 0 200px hsl(var(--brand-blue) / 0.06),
+      0 0 40px hsl(43 96% 56% / 0.12),
+      inset 0 0 80px hsl(var(--brand-blue) / 0.08);
   }
 
   .shimmer {
