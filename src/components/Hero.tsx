@@ -48,7 +48,8 @@ const Hero = () => {
               className="text-gradient-rainbow font-fun inline-block cursor-default"
               style={{ transform: "rotate(-3deg)" }}
             >
-              Simp <span className="inline-block text-4xl sm:text-5xl md:text-6xl" role="img" aria-label="sad face">☹️</span>
+              Simp
+              <span className="inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-muted/40 border-2 border-muted-foreground/20 text-3xl sm:text-4xl md:text-5xl align-middle ml-1" role="img" aria-label="sad face">😢</span>
             </motion.span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">

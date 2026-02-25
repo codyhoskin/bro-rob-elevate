@@ -149,7 +149,14 @@ const PricingCard = () => {
         transition={{ duration: 0.7 }}
         className="relative z-10 max-w-lg mx-auto"
       >
-        <div className={`glass-card rounded-2xl p-6 sm:p-8 transition-all duration-700 ${CARD_THEMES[duration]} shimmer`}>
+        <motion.div
+          animate={isMaxCommit ? {
+            scale: [1, 1.005, 1],
+            rotate: [0, 0.2, -0.2, 0],
+          } : {}}
+          transition={isMaxCommit ? { repeat: Infinity, duration: 2, ease: "easeInOut" } : {}}
+          className={`glass-card rounded-2xl p-6 sm:p-8 transition-all duration-700 ${CARD_THEMES[duration]} shimmer`}
+        >
           {/* Header */}
           <div className="text-center mb-8">
             <h2 className="font-display text-3xl sm:text-4xl text-foreground tracking-wide">
@@ -182,58 +189,22 @@ const PricingCard = () => {
             </div>
           </div>
 
-          {/* Commitment Progress Bar with power-up effect */}
-          <div className="mb-6">
-            <div className="flex justify-between text-xs text-muted-foreground mb-1.5">
-              <span>Commitment Level</span>
-              <motion.span
-                className="font-semibold text-foreground"
-                key={commitLevel}
-                initial={{ scale: 1.3 }}
-                animate={{ scale: 1 }}
-              >
-                {commitLevel}%
-              </motion.span>
-            </div>
-            <div className="h-3 bg-muted/40 rounded-full overflow-hidden relative">
-              <motion.div
-                className="h-full rounded-full bg-gradient-brand relative"
-                initial={{ width: "25%" }}
-                animate={{
-                  width: `${commitLevel}%`,
-                  boxShadow: isMaxCommit
-                    ? "0 0 20px hsl(var(--brand-blue) / 0.6), 0 0 40px hsl(var(--brand-blue) / 0.3)"
-                    : commitLevel > 50
-                    ? "0 0 10px hsl(var(--brand-blue) / 0.3)"
-                    : "none",
-                }}
-                transition={{ type: "spring", stiffness: 200, damping: 25 }}
-              />
-              {commitLevel >= 75 && (
-                <motion.div
-                  className="absolute inset-0 rounded-full"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                    ...(isMaxCommit ? { x: [-1, 1, -1, 0] } : {}),
-                  }}
-                  transition={{ repeat: Infinity, duration: isMaxCommit ? 0.3 : 1.5 }}
-                  style={{
-                    background: "linear-gradient(90deg, transparent, hsl(var(--brand-blue) / 0.2), transparent)",
-                    width: `${commitLevel}%`,
-                  }}
-                />
-              )}
-            </div>
-            {isMaxCommit && (
+          {/* Power-up indicator */}
+          {isMaxCommit && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="mb-4 text-center"
+            >
               <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-[10px] text-brand-blue mt-1 text-center font-semibold tracking-wider uppercase"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+                className="text-xs text-brand-blue font-semibold tracking-wider uppercase"
               >
-                ⚡ Maximum Commitment Unlocked
+                ⚡ Maximum Commitment — Best Value ⚡
               </motion.p>
-            )}
-          </div>
+            </motion.div>
+          )}
 
           {/* Pay Style Toggle */}
           <div className="mb-6">
@@ -330,9 +301,21 @@ const PricingCard = () => {
             Start Training Now
           </motion.button>
 
-          <div className="text-center text-xs text-muted-foreground mb-8 space-y-0.5">
-            <p>🔒 Secure checkout · 100% money-back guarantee</p>
-            <p>Commitment-based pricing · See terms for details</p>
+          <div className="text-center text-xs text-muted-foreground mb-8 space-y-2">
+            <p className="flex items-center justify-center gap-2">
+              <svg viewBox="0 0 24 24" className="w-4 h-4 text-muted-foreground" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+              Secure checkout · Terms & Conditions apply
+            </p>
+            <div className="flex items-center justify-center gap-3 opacity-60">
+              {/* Stripe */}
+              <span className="text-[10px] font-bold uppercase tracking-wider border border-muted-foreground/30 rounded px-2 py-0.5">Stripe</span>
+              {/* Visa */}
+              <span className="text-[10px] font-bold uppercase tracking-wider border border-muted-foreground/30 rounded px-2 py-0.5">Visa</span>
+              {/* Mastercard */}
+              <span className="text-[10px] font-bold uppercase tracking-wider border border-muted-foreground/30 rounded px-2 py-0.5">MC</span>
+              {/* Apple Pay */}
+              <span className="text-[10px] font-bold uppercase tracking-wider border border-muted-foreground/30 rounded px-2 py-0.5"> Pay</span>
+            </div>
           </div>
 
           {/* Divider */}
@@ -347,7 +330,7 @@ const PricingCard = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
     </section>
   );
