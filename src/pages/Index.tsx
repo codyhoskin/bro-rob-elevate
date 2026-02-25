@@ -26,7 +26,7 @@ const Index = () => {
           ref={imgRef}
           src="/images/comic-story.jpg"
           alt=""
-          className="absolute right-[-5%] top-[5%] h-[70%] w-auto object-contain opacity-[0.18] pointer-events-none select-none will-change-transform"
+          className="absolute right-[-5%] top-[5%] h-[70%] w-auto object-contain opacity-[0.22] pointer-events-none select-none will-change-transform"
           style={{ transform: "rotate(-8deg)" }}
           loading="lazy"
         />
