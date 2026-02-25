@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ChevronDown } from "lucide-react";
 
@@ -46,7 +46,7 @@ const FEATURES = [
   },
 ];
 
-const AnimatedPrice = ({ value }: { value: number }) => {
+const AnimatedPrice = React.forwardRef<HTMLSpanElement, { value: number }>(({ value }, ref) => {
   const [display, setDisplay] = useState(value);
 
   useEffect(() => {
@@ -65,8 +65,9 @@ const AnimatedPrice = ({ value }: { value: number }) => {
     requestAnimationFrame(tick);
   }, [value]);
 
-  return <span>${display}</span>;
-};
+  return <span ref={ref}>${display}</span>;
+});
+AnimatedPrice.displayName = "AnimatedPrice";
 
 const FeatureItem = ({ feature, index }: { feature: typeof FEATURES[0]; index: number }) => {
   const [open, setOpen] = useState(false);
@@ -176,8 +177,8 @@ const PricingCard = () => {
                     </motion.span>
                   )}
                   <button
-                    onClick={() => setDuration(d)}
-                    className={`relative z-0 w-full py-3.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 ${
+                    onClick={(e) => { e.stopPropagation(); setDuration(d); }}
+                    className={`w-full py-3.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 ${
                       duration === d
                         ? "bg-brand-red text-primary-foreground shadow-lg shadow-brand-red/20"
                         : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
@@ -214,12 +215,12 @@ const PricingCard = () => {
                 className={`text-sm font-semibold transition-colors duration-300 cursor-pointer ${
                   payStyle === "monthly" ? "text-foreground" : "text-muted-foreground/50"
                 }`}
-                onClick={() => setPayStyle("monthly")}
+                onClick={(e) => { e.stopPropagation(); setPayStyle("monthly"); }}
               >
                 Pay Monthly
               </span>
               <button
-                onClick={() => setPayStyle(payStyle === "monthly" ? "upfront" : "monthly")}
+                onClick={(e) => { e.stopPropagation(); setPayStyle(payStyle === "monthly" ? "upfront" : "monthly"); }}
                 className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
                   payStyle === "upfront" ? "bg-brand-blue" : "bg-muted/60"
                 }`}
@@ -234,7 +235,7 @@ const PricingCard = () => {
                 className={`text-sm font-semibold transition-colors duration-300 cursor-pointer ${
                   payStyle === "upfront" ? "text-brand-blue" : "text-muted-foreground/50"
                 }`}
-                onClick={() => setPayStyle("upfront")}
+                onClick={(e) => { e.stopPropagation(); setPayStyle("upfront"); }}
               >
                 Pay In Full
                 <span className={`ml-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full transition-colors duration-300 ${
@@ -276,23 +277,21 @@ const PricingCard = () => {
                 {pricing.months > 1 && (
                   <div className="mt-2">
                     {isUpfront ? (
-                      <p className="text-muted-foreground text-sm font-body">
-                        <span className="line-through opacity-50">${originalTotal}</span>
-                        <span className="text-brand-blue font-semibold ml-2">${total} total</span>
-                      </p>
+                      <>
+                        <p className="text-muted-foreground text-sm font-body">
+                          <span className="line-through opacity-50">${originalTotal}</span>
+                          <span className="text-brand-blue font-semibold ml-2">${total} total</span>
+                        </p>
+                        <p className="text-sm font-bold text-brand-blue mt-1">
+                          You save ${originalTotal - total}!
+                        </p>
+                      </>
                     ) : (
                       <p className="text-muted-foreground text-sm font-body">
                         ${total} billed over {pricing.months} months
                       </p>
                     )}
                   </div>
-                )}
-
-                {isUpfront && pricing.months === 1 && (
-                  <p className="text-muted-foreground text-sm mt-2 font-body">
-                    <span className="line-through opacity-50">${pricing.monthly}</span>
-                    <span className="text-brand-blue font-semibold ml-2">Save ${pricing.monthly - monthlyRate}</span>
-                  </p>
                 )}
               </motion.div>
             </AnimatePresence>
