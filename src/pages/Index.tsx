@@ -1,16 +1,31 @@
+import { useEffect, useRef } from "react";
 import Hero from "@/components/Hero";
 import PricingCard from "@/components/PricingCard";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (imgRef.current) {
+        const speed = 0.35;
+        imgRef.current.style.transform = `rotate(-8deg) translateY(${-window.scrollY * speed}px)`;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-dark comic-bg">
-      <div className="relative">
-        {/* Comic story background - behind hero, fading into pricing */}
+      <div className="relative overflow-hidden">
+        {/* Comic story background - parallax */}
         <img
+          ref={imgRef}
           src="/images/comic-story.jpg"
           alt=""
-          className="absolute right-[-5%] top-[5%] h-[70%] w-auto object-contain opacity-[0.12] pointer-events-none select-none"
+          className="absolute right-[-5%] top-[5%] h-[70%] w-auto object-contain opacity-[0.12] pointer-events-none select-none will-change-transform"
           style={{ transform: "rotate(-8deg)" }}
           loading="lazy"
         />

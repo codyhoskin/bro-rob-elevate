@@ -151,9 +151,9 @@ const PricingCard = () => {
         >
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="font-display text-3xl sm:text-4xl tracking-wide leading-tight">
-              <span className="text-foreground block">Train With</span>
-              <span className="text-brand-blue block">Your Bro Rob</span>
+            <h2 className="font-display tracking-wide leading-tight">
+              <span className="text-foreground block text-3xl sm:text-4xl">Train With</span>
+              <span className="text-brand-blue block text-5xl sm:text-6xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">Your Bro Rob</span>
             </h2>
             <p className="text-muted-foreground font-body text-sm mt-3 tracking-wide">
               Elite Coaching. Real Results. Full Accountability.
