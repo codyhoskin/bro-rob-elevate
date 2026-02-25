@@ -90,8 +90,103 @@
     background: linear-gradient(135deg, hsl(var(--brand-red)), hsl(var(--brand-blue)));
   }
 
+  /* Comic book background */
+  .comic-bg {
+    position: relative;
+  }
+  .comic-bg::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/comic-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .comic-bg::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, hsl(var(--brand-red) / 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, hsl(var(--brand-blue) / 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Comic halftone dot pattern overlay */
+  .comic-halftone {
+    position: relative;
+  }
+  .comic-halftone::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, hsl(var(--foreground) / 0.03) 1px, transparent 1px);
+    background-size: 8px 8px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Comic panel border */
+  .comic-panel {
+    border: 3px solid hsl(var(--foreground) / 0.15);
+    box-shadow:
+      4px 4px 0px hsl(0 0% 0% / 0.3),
+      inset 0 0 0 1px hsl(var(--foreground) / 0.05);
+  }
+
+  /* Comic burst / starburst for badges */
+  .comic-burst {
+    position: relative;
+    filter: drop-shadow(0 0 8px hsl(var(--brand-red) / 0.4));
+  }
+
+  /* Comic text stroke effect */
+  .comic-text-stroke {
+    -webkit-text-stroke: 1px hsl(0 0% 0% / 0.3);
+    paint-order: stroke fill;
+  }
+
+  /* Speed lines background */
+  .comic-speed-lines {
+    position: relative;
+  }
+  .comic-speed-lines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 48%,
+        hsl(var(--foreground) / 0.015) 48%,
+        hsl(var(--foreground) / 0.015) 52%,
+        transparent 52%
+      ),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 96%,
+        hsl(var(--brand-red) / 0.02) 96%,
+        hsl(var(--brand-red) / 0.02) 100%
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 96%,
+        hsl(var(--brand-blue) / 0.02) 96%,
+        hsl(var(--brand-blue) / 0.02) 100%
+      );
+    pointer-events: none;
+  }
+
   .glass-card {
-    @apply backdrop-blur-xl border border-white/10;
+    @apply backdrop-blur-xl;
     background: linear-gradient(135deg, hsl(222 40% 12% / 0.8), hsl(222 40% 8% / 0.9));
     box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4), inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
