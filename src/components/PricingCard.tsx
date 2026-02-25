@@ -6,7 +6,7 @@ type Duration = "monthly" | "3month" | "6month" | "1year";
 type PayStyle = "monthly" | "upfront";
 
 const PRICING: Record<Duration, { monthly: number; upfront: number; months: number; label: string }> = {
-  monthly: { monthly: 199, upfront: 179, months: 1, label: "1 Month" },
+  monthly: { monthly: 199, upfront: 199, months: 1, label: "1 Month" },
   "3month": { monthly: 189, upfront: 170, months: 3, label: "3 Months" },
   "6month": { monthly: 169, upfront: 152, months: 6, label: "6 Months" },
   "1year": { monthly: 149, upfront: 134, months: 12, label: "1 Year" },
@@ -149,8 +149,9 @@ const PricingCard = () => {
           transition={isMaxCommit ? { repeat: Infinity, duration: 2.5, ease: "easeInOut" } : {}}
           className={`glass-card comic-panel rounded-2xl p-8 sm:p-10 transition-all duration-700 ${CARD_THEMES[duration]} shimmer`}
         >
-          {/* Header */}
+          {/* Logo + Header */}
           <div className="text-center mb-10">
+            <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="w-24 sm:w-28 mx-auto mb-5" />
             <h2 className="font-display tracking-wide leading-tight">
               <span className="text-foreground block text-3xl sm:text-4xl">Train With</span>
               <span className="text-brand-blue block text-5xl sm:text-6xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">Your Bro Rob</span>
