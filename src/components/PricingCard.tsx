@@ -134,18 +134,6 @@ const PricingCard = () => {
       <div className="absolute inset-0 bg-gradient-dark opacity-80" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/5 blur-[150px]" />
 
-      {/* Section Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="relative z-10 text-center font-display text-5xl sm:text-6xl md:text-7xl comic-text-stroke tracking-wider mb-10 sm:mb-14"
-      >
-        <span className="text-gradient-brand">Custom</span>{" "}
-        <span className="text-foreground">Packages</span>
-      </motion.h2>
-
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -163,8 +151,9 @@ const PricingCard = () => {
         >
           {/* Header */}
           <div className="text-center mb-10">
-            <h2 className="font-display text-3xl sm:text-4xl text-foreground tracking-wide">
-              Train With <span className="text-gradient-brand">Your Bro Rob</span>
+            <h2 className="font-display text-3xl sm:text-4xl tracking-wide leading-tight">
+              <span className="text-foreground block">Train With</span>
+              <span className="text-brand-blue block">Your Bro Rob</span>
             </h2>
             <p className="text-muted-foreground font-body text-sm mt-3 tracking-wide">
               Elite Coaching. Real Results. Full Accountability.
