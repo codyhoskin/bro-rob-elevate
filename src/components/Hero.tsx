@@ -51,7 +51,7 @@ const Hero = () => {
               >
               Simp
               </motion.span>
-              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-1 sm:ml-2" role="img" aria-label="sad face">😢</span>
+              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-3 sm:ml-4" role="img" aria-label="sad face">😢</span>
             </span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">

@@ -208,39 +208,41 @@ const PricingCard = () => {
             </motion.div>
           )}
 
-          {/* Pay Style Toggle - Sliding toggle */}
+          {/* Pay Style Toggle - Single switch */}
           <div className="mb-10">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3 font-semibold">Payment</p>
-            <div className="relative bg-muted/40 rounded-xl p-1 border border-border/20">
-              {/* Sliding background */}
-              <motion.div
-                className="absolute top-1 bottom-1 rounded-lg bg-brand-blue shadow-lg"
-                initial={false}
-                animate={{
-                  left: payStyle === "monthly" ? "4px" : "50%",
-                  right: payStyle === "monthly" ? "50%" : "4px",
-                }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              />
-              <div className="relative grid grid-cols-2 gap-0">
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Payment</p>
+              <div className="flex items-center gap-3">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={payStyle}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-sm font-semibold text-foreground/90"
+                  >
+                    {payStyle === "monthly" ? "Pay Monthly" : (
+                      <>
+                        Pay In Full
+                        <span className="ml-1.5 bg-brand-red text-primary-foreground text-[9px] font-bold px-1.5 py-0.5 rounded-full">
+                          -10%
+                        </span>
+                      </>
+                    )}
+                  </motion.span>
+                </AnimatePresence>
                 <button
-                  onClick={() => setPayStyle("monthly")}
-                  className={`relative z-10 py-3 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors duration-200 ${
-                    payStyle === "monthly" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                  onClick={() => setPayStyle(payStyle === "monthly" ? "upfront" : "monthly")}
+                  className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
+                    payStyle === "upfront" ? "bg-brand-blue" : "bg-muted/60"
                   }`}
                 >
-                  Pay Monthly
-                </button>
-                <button
-                  onClick={() => setPayStyle("upfront")}
-                  className={`relative z-10 py-3 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors duration-200 ${
-                    payStyle === "upfront" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  Pay In Full
-                  <span className="ml-1.5 bg-brand-red text-primary-foreground text-[9px] font-bold px-1.5 py-0.5 rounded-full">
-                    -10%
-                  </span>
+                  <motion.span
+                    className="block h-5 w-5 rounded-full bg-foreground shadow-lg"
+                    animate={{ x: payStyle === "upfront" ? 22 : 2 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                  />
                 </button>
               </div>
             </div>
