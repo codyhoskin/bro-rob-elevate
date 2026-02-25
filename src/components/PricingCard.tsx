@@ -161,7 +161,6 @@ const PricingCard = () => {
 
           {/* Duration Toggle */}
           <div className="mb-8">
-            <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3 font-semibold">Commitment</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {durations.map((d) => (
                 <div key={d} className="relative">
@@ -169,23 +168,21 @@ const PricingCard = () => {
                     <motion.span
                       initial={{ opacity: 0, y: 4 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-brand-blue text-primary-foreground text-[9px] font-bold px-2 py-0.5 rounded-full shadow-md whitespace-nowrap"
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-brand-blue text-primary-foreground text-[9px] font-bold px-2 py-0.5 rounded-full shadow-md whitespace-nowrap pointer-events-none"
                     >
                       Best Value
                     </motion.span>
                   )}
-                  <motion.button
-                    whileHover={{ scale: 1.04 }}
-                    whileTap={{ scale: 0.96 }}
+                  <button
                     onClick={() => setDuration(d)}
-                    className={`w-full py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                    className={`relative z-0 w-full py-3.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 ${
                       duration === d
                         ? "bg-brand-red text-primary-foreground shadow-lg shadow-brand-red/20"
                         : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
                     }`}
                   >
                     {PRICING[d].label}
-                  </motion.button>
+                  </button>
                 </div>
               ))}
             </div>
@@ -211,40 +208,37 @@ const PricingCard = () => {
           {/* Pay Style Toggle - Single switch */}
           <div className="mb-10">
             <div className="flex items-center justify-between">
-              <p className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Payment</p>
-              <div className="flex items-center gap-3">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={payStyle}
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -6 }}
-                    transition={{ duration: 0.2 }}
-                    className="text-sm font-semibold text-foreground/90"
-                  >
-                    {payStyle === "monthly" ? "Pay Monthly" : (
-                      <>
-                        Pay In Full
-                        <span className="ml-1.5 bg-brand-red text-primary-foreground text-[9px] font-bold px-1.5 py-0.5 rounded-full">
-                          -10%
-                        </span>
-                      </>
-                    )}
-                  </motion.span>
-                </AnimatePresence>
-                <button
-                  onClick={() => setPayStyle(payStyle === "monthly" ? "upfront" : "monthly")}
-                  className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
-                    payStyle === "upfront" ? "bg-brand-blue" : "bg-muted/60"
-                  }`}
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={payStyle}
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-sm font-semibold text-foreground/90"
                 >
-                  <motion.span
-                    className="block h-5 w-5 rounded-full bg-foreground shadow-lg"
-                    animate={{ x: payStyle === "upfront" ? 22 : 2 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                  />
-                </button>
-              </div>
+                  {payStyle === "monthly" ? "Pay Monthly" : (
+                    <>
+                      Pay In Full
+                      <span className="ml-1.5 bg-brand-red text-primary-foreground text-[9px] font-bold px-1.5 py-0.5 rounded-full">
+                        -10%
+                      </span>
+                    </>
+                  )}
+                </motion.span>
+              </AnimatePresence>
+              <button
+                onClick={() => setPayStyle(payStyle === "monthly" ? "upfront" : "monthly")}
+                className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
+                  payStyle === "upfront" ? "bg-brand-blue" : "bg-muted/60"
+                }`}
+              >
+                <motion.span
+                  className="block h-5 w-5 rounded-full bg-foreground shadow-lg pointer-events-none"
+                  animate={{ x: payStyle === "upfront" ? 22 : 2 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                />
+              </button>
             </div>
           </div>
 
