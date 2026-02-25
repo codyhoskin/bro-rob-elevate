@@ -205,28 +205,17 @@ const PricingCard = () => {
             </motion.div>
           )}
 
-          {/* Pay Style Toggle - Single switch */}
+          {/* Pay Style Toggle - Integrated labels */}
           <div className="mb-10">
-            <div className="flex items-center justify-between">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={payStyle}
-                  initial={{ opacity: 0, y: 6 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -6 }}
-                  transition={{ duration: 0.2 }}
-                  className="text-sm font-semibold text-foreground/90"
-                >
-                  {payStyle === "monthly" ? "Pay Monthly" : (
-                    <>
-                      Pay In Full
-                      <span className="ml-1.5 bg-brand-red text-primary-foreground text-[9px] font-bold px-1.5 py-0.5 rounded-full">
-                        -10%
-                      </span>
-                    </>
-                  )}
-                </motion.span>
-              </AnimatePresence>
+            <div className="flex items-center justify-center gap-3">
+              <span
+                className={`text-sm font-semibold transition-colors duration-300 cursor-pointer ${
+                  payStyle === "monthly" ? "text-foreground" : "text-muted-foreground/50"
+                }`}
+                onClick={() => setPayStyle("monthly")}
+              >
+                Pay Monthly
+              </span>
               <button
                 onClick={() => setPayStyle(payStyle === "monthly" ? "upfront" : "monthly")}
                 className={`relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 focus-visible:outline-none ${
@@ -239,6 +228,19 @@ const PricingCard = () => {
                   transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 />
               </button>
+              <span
+                className={`text-sm font-semibold transition-colors duration-300 cursor-pointer ${
+                  payStyle === "upfront" ? "text-brand-blue" : "text-muted-foreground/50"
+                }`}
+                onClick={() => setPayStyle("upfront")}
+              >
+                Pay In Full
+                <span className={`ml-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full transition-colors duration-300 ${
+                  payStyle === "upfront" ? "bg-brand-blue text-primary-foreground" : "bg-muted/40 text-muted-foreground/50"
+                }`}>
+                  -10%
+                </span>
+              </span>
             </div>
           </div>
 
