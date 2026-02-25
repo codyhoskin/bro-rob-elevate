@@ -164,19 +164,29 @@ const PricingCard = () => {
             <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3 font-semibold">Commitment</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {durations.map((d) => (
-                <motion.button
-                  key={d}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.96 }}
-                  onClick={() => setDuration(d)}
-                  className={`py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                    duration === d
-                      ? "bg-gradient-brand text-primary-foreground shadow-lg shadow-brand-blue/20"
-                      : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
-                  }`}
-                >
-                  {PRICING[d].label}
-                </motion.button>
+                <div key={d} className="relative">
+                  {d === "1year" && (
+                    <motion.span
+                      initial={{ opacity: 0, y: 4 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 bg-brand-blue text-primary-foreground text-[9px] font-bold px-2 py-0.5 rounded-full shadow-md whitespace-nowrap"
+                    >
+                      Best Value
+                    </motion.span>
+                  )}
+                  <motion.button
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.96 }}
+                    onClick={() => setDuration(d)}
+                    className={`w-full py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
+                      duration === d
+                        ? "bg-brand-red text-primary-foreground shadow-lg shadow-brand-red/20"
+                        : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
+                    }`}
+                  >
+                    {PRICING[d].label}
+                  </motion.button>
+                </div>
               ))}
             </div>
           </div>
@@ -198,37 +208,41 @@ const PricingCard = () => {
             </motion.div>
           )}
 
-          {/* Pay Style Toggle */}
+          {/* Pay Style Toggle - Sliding toggle */}
           <div className="mb-10">
             <p className="text-xs text-muted-foreground uppercase tracking-wider mb-3 font-semibold">Payment</p>
-            <div className="grid grid-cols-2 gap-2">
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => setPayStyle("monthly")}
-                className={`py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  payStyle === "monthly"
-                    ? "bg-gradient-brand text-primary-foreground shadow-lg shadow-brand-blue/20"
-                    : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
-                }`}
-              >
-                Pay Monthly
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                onClick={() => setPayStyle("upfront")}
-                className={`relative py-3 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 ${
-                  payStyle === "upfront"
-                    ? "bg-gradient-brand text-primary-foreground shadow-lg shadow-brand-blue/20"
-                    : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
-                }`}
-              >
-                Pay In Full
-                <span className="absolute -top-2.5 -right-2 bg-brand-blue text-primary-foreground text-[10px] font-bold px-2 py-0.5 rounded-full shadow-md">
-                  -10%
-                </span>
-              </motion.button>
+            <div className="relative bg-muted/40 rounded-xl p-1 border border-border/20">
+              {/* Sliding background */}
+              <motion.div
+                className="absolute top-1 bottom-1 rounded-lg bg-brand-blue shadow-lg"
+                initial={false}
+                animate={{
+                  left: payStyle === "monthly" ? "4px" : "50%",
+                  right: payStyle === "monthly" ? "50%" : "4px",
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+              <div className="relative grid grid-cols-2 gap-0">
+                <button
+                  onClick={() => setPayStyle("monthly")}
+                  className={`relative z-10 py-3 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors duration-200 ${
+                    payStyle === "monthly" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Pay Monthly
+                </button>
+                <button
+                  onClick={() => setPayStyle("upfront")}
+                  className={`relative z-10 py-3 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-colors duration-200 ${
+                    payStyle === "upfront" ? "text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  Pay In Full
+                  <span className="ml-1.5 bg-brand-red text-primary-foreground text-[9px] font-bold px-1.5 py-0.5 rounded-full">
+                    -10%
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -284,7 +298,7 @@ const PricingCard = () => {
             </AnimatePresence>
           </div>
 
-          {/* CTA */}
+          {/* CTA - dual color gradient (only this button) */}
           <motion.button
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
@@ -309,8 +323,9 @@ const PricingCard = () => {
               </div>
               {/* Visa */}
               <div className="flex items-center bg-muted/30 rounded-md px-2.5 py-1.5 opacity-50 hover:opacity-80 transition-opacity">
-                <svg viewBox="0 0 32 10" className="h-3" fill="none">
-                  <path d="M12.8 0.5l-2.5 9h-2.2l-1.2-7.2c-.07-.28-.13-.38-.35-.5C6.02 1.5 5 1.1 4.1 0.85l.05-.35h3.55c.45 0 .86.3.96.83l.88 4.67L11.9.5h.9zm3.52 6.07c0-2.38-3.3-2.51-3.27-3.58.01-.32.31-.67 1-.75.33-.04 1.25-.08 2.3.42l.4-1.9C16.18.5 15.35.2 14.35.2c-2.17 0-3.7 1.15-3.71 2.8-.01 1.22 1.09 1.9 1.92 2.31.86.41 1.14.68 1.14 1.05-.01.57-.68.82-1.32.83-.6.01-1.52-.16-2.2-.57l-.39 1.82c.5.23 1.42.43 2.38.44 2.3 0 3.81-1.14 3.82-2.9l-.67-.01zm5.72 2.93l1.6-9h-1.72l-1.6 9h1.72zm6.47-9l-2.34 9h-2l-2.34-9h2.16l1.14 6.22L26.3.5h2.21z" fill="hsl(var(--foreground))" opacity="0.7"/>
+                <svg viewBox="0 0 750 471" className="h-4" fill="none">
+                  <path d="M278.198 334.228l33.36-195.763h53.358l-33.384 195.763H278.198zm246.11-191.54c-10.57-3.966-27.135-8.222-47.822-8.222-52.725 0-89.863 26.55-90.18 64.604-.316 28.13 26.508 43.822 46.754 53.185 20.77 9.597 27.75 15.716 27.66 24.27-.14 13.12-16.586 19.106-31.924 19.106-21.35 0-32.7-2.96-50.225-10.274l-6.876-3.112-7.49 43.823c12.474 5.467 35.53 10.198 59.476 10.448 56.07 0 92.5-26.246 92.918-66.882.21-22.296-14.04-39.26-44.862-53.254-18.68-9.072-30.13-15.12-30.01-24.314 0-8.148 9.682-16.856 30.612-16.856 17.476-.27 30.15 3.534 40.01 7.5l4.8 2.268 7.158-41.69zm137.61-4.222h-41.232c-12.774 0-22.332 3.486-27.942 16.234l-79.245 179.53h56.018s9.16-24.13 11.232-29.418c6.124 0 60.554.084 68.336.084 1.596 6.854 6.49 29.334 6.49 29.334h49.512l-43.17-195.764zm-65.518 126.408c4.414-11.28 21.26-54.723 21.26-54.723-.316.525 4.38-11.33 7.074-18.684l3.606 16.878s10.218 46.738 12.352 56.53h-44.292zM209.394 138.465l-52.24 133.496-5.565-27.13c-9.726-31.273-40.025-65.155-73.898-82.118l47.767 171.204 56.456-.064 84.004-195.388h-56.524z" fill="hsl(var(--foreground))" opacity="0.7"/>
+                  <path d="M131.92 138.465H49.468l-.682 4.07c66.938 16.204 111.232 55.363 129.618 102.404l-18.71-89.96c-3.23-12.395-12.597-16.094-27.774-16.514z" fill="hsl(var(--foreground))" opacity="0.4"/>
                 </svg>
               </div>
               {/* Mastercard */}

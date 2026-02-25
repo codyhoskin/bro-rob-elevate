@@ -35,25 +35,23 @@ const Hero = () => {
             Go From
           </span>
 
-          <span className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap">
-            {/* SIMP */}
-            <motion.span
-              onHoverStart={() => setSimpHover(true)}
-              onHoverEnd={() => setSimpHover(false)}
-              animate={simpHover ? {
-                rotate: [-2, 2, -2, 0],
-                scale: [1, 0.97, 1],
-              } : {}}
-              transition={{ duration: 0.5 }}
-              className="text-gradient-rainbow font-fun inline-block cursor-default"
-              style={{ transform: "rotate(-3deg)" }}
-            >
-              Simp
-            </motion.span>
-            <span className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full relative -ml-2 sm:-ml-3">
-              <span className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600 via-blue-500 to-indigo-700 opacity-90" />
-              <span className="absolute inset-0 rounded-full border-[3px] border-muted-foreground/30" />
-              <span className="relative text-2xl sm:text-3xl md:text-4xl leading-none" role="img" aria-label="sad face">😢</span>
+          <span className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 flex-wrap">
+            {/* SIMP + sad face */}
+            <span className="flex items-center gap-1 sm:gap-2">
+              <motion.span
+                onHoverStart={() => setSimpHover(true)}
+                onHoverEnd={() => setSimpHover(false)}
+                animate={simpHover ? {
+                  rotate: [-2, 2, -2, 0],
+                  scale: [1, 0.97, 1],
+                } : {}}
+                transition={{ duration: 0.5 }}
+                className="text-gradient-rainbow font-fun inline-block cursor-default"
+                style={{ transform: "rotate(-3deg)" }}
+              >
+                Simp
+              </motion.span>
+              <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl" role="img" aria-label="sad face">😢</span>
             </span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">
