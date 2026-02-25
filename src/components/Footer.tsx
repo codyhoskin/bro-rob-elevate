@@ -20,9 +20,9 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-30" />
       <div className="max-w-5xl mx-auto px-4 py-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
-          <div className="text-center sm:text-left">
-            <h3 className="font-display text-2xl text-gradient-brand tracking-wide">Your Bro Rob</h3>
-            <p className="text-muted-foreground text-xs mt-1 italic">"Discipline Builds Champions"</p>
+          <div className="text-center sm:text-left flex flex-col items-center sm:items-start gap-2">
+            <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="w-16" />
+            <p className="text-muted-foreground text-xs italic">"Discipline Builds Champions"</p>
           </div>
 
           <nav className="flex flex-wrap justify-center gap-6">
