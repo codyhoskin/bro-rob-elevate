@@ -8,6 +8,10 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden comic-speed-lines comic-halftone">
+      {/* Theme toggle - top right */}
+      <div className="absolute top-6 right-6 z-20">
+        <ThemeToggle />
+      </div>
 
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-dark opacity-80" />
@@ -92,12 +96,12 @@ const Hero = () => {
           Elite coaching that transforms your physique, your confidence, and your life.
         </motion.p>
 
-        {/* Scroll indicator + Theme Toggle */}
+        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="mt-12 flex flex-col items-center gap-4"
+          className="mt-12"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -106,7 +110,6 @@ const Hero = () => {
           >
             <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50" />
           </motion.div>
-          <ThemeToggle />
         </motion.div>
       </motion.div>
     </section>
