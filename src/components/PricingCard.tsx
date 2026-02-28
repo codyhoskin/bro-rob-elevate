@@ -5,18 +5,25 @@ import { Check, ChevronDown } from "lucide-react";
 type Duration = "monthly" | "3month" | "6month" | "1year";
 type PayStyle = "monthly" | "upfront";
 
-const PRICING: Record<Duration, { monthly: number; upfront: number; months: number; label: string }> = {
-  monthly: { monthly: 199, upfront: 199, months: 1, label: "1 Month" },
-  "3month": { monthly: 189, upfront: 170, months: 3, label: "3 Months" },
-  "6month": { monthly: 169, upfront: 152, months: 6, label: "6 Months" },
-  "1year": { monthly: 149, upfront: 134, months: 12, label: "1 Year" },
+const PRICING: Record<Duration, { monthly: number; upfront: number; months: number; label: string; tier: string; tierColor: string }> = {
+  monthly: { monthly: 199, upfront: 199, months: 1, label: "1 Month", tier: "Starter", tierColor: "text-brand-red" },
+  "3month": { monthly: 189, upfront: 170, months: 3, label: "3 Months", tier: "Committed", tierColor: "text-brand-gold" },
+  "6month": { monthly: 169, upfront: 152, months: 6, label: "6 Months", tier: "Dedicated", tierColor: "text-brand-blue" },
+  "1year": { monthly: 149, upfront: 134, months: 12, label: "1 Year", tier: "Elite", tierColor: "text-purple-400" },
 };
 
 const CARD_THEMES: Record<Duration, string> = {
-  monthly: "card-theme-monthly",
-  "3month": "card-theme-3month",
-  "6month": "card-theme-6month",
-  "1year": "card-theme-1year",
+  monthly: "card-tier-starter",
+  "3month": "card-tier-intermediate",
+  "6month": "card-tier-advanced",
+  "1year": "card-tier-pro card-tier-pro-glow",
+};
+
+const TIER_BTN_ACTIVE: Record<Duration, string> = {
+  monthly: "bg-brand-red text-primary-foreground shadow-lg shadow-brand-red/20",
+  "3month": "bg-brand-gold text-primary-foreground shadow-lg shadow-brand-gold/20",
+  "6month": "bg-brand-blue text-primary-foreground shadow-lg shadow-brand-blue/20",
+  "1year": "bg-purple-500 text-primary-foreground shadow-lg shadow-purple-500/20",
 };
 
 const FEATURES = [
@@ -164,7 +171,7 @@ const PricingCard = () => {
               <span className="text-brand-blue block text-5xl sm:text-6xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">Your Bro Rob</span>
             </h2>
             <p className="text-muted-foreground font-body text-sm mt-3 tracking-wide">
-              Elite Coaching. Real Results. Full Accountability.
+              <span className={`font-bold ${pricing.tierColor}`}>{pricing.tier}</span> — Elite Coaching. Real Results.
             </p>
           </div>
 
@@ -186,10 +193,11 @@ const PricingCard = () => {
                     onClick={(e) => { e.stopPropagation(); setDuration(d); }}
                     className={`w-full py-3.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 active:scale-95 ${
                       duration === d
-                        ? "bg-brand-red text-primary-foreground shadow-lg shadow-brand-red/20"
+                        ? TIER_BTN_ACTIVE[d]
                         : "bg-muted/40 text-muted-foreground hover:bg-muted/70 hover:text-foreground border border-border/20"
                     }`}
                   >
+                    <span className="block text-[10px] opacity-70 font-bold uppercase tracking-wider leading-tight">{PRICING[d].tier}</span>
                     {PRICING[d].label}
                   </button>
                 </div>
