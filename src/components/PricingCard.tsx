@@ -152,10 +152,10 @@ const PricingCard = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] ${
-          duration === "monthly" ? "bg-[hsl(var(--tier-starter)/0.08)]" :
-          duration === "3month" ? "bg-[hsl(var(--tier-intermediate)/0.08)]" :
-          duration === "6month" ? "bg-[hsl(var(--tier-advanced)/0.08)]" :
-          "bg-[hsl(var(--tier-pro)/0.12)]"
+          duration === "monthly" ? "bg-[hsl(var(--tier-starter)/0.15)]" :
+          duration === "3month" ? "bg-[hsl(var(--tier-intermediate)/0.15)]" :
+          duration === "6month" ? "bg-[hsl(var(--tier-advanced)/0.18)]" :
+          "bg-[hsl(var(--tier-pro)/0.22)]"
         }`}
       />
 
@@ -179,7 +179,18 @@ const PricingCard = () => {
             <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="w-24 sm:w-28 mx-auto mb-5" />
             <h2 className="font-display tracking-wide leading-tight">
               <span className="text-foreground block text-3xl sm:text-4xl">Train With</span>
-              <span className="text-brand-blue block text-5xl sm:text-6xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">Your Bro Rob</span>
+              <span className="text-brand-blue block text-5xl sm:text-6xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">
+                {"Your Bro Rob".split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="inline-block cursor-default"
+                    whileHover={{ scale: 1.3, y: -4 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 12 }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </span>
             </h2>
             <p className="text-muted-foreground font-body text-sm mt-3 tracking-wide">
               <span className={`font-bold ${pricing.tierColor}`}>{pricing.tier}</span> — Elite Coaching. Real Results.
