@@ -125,7 +125,7 @@ const FeatureItem = ({ feature, index }: { feature: typeof FEATURES[0]; index: n
 };
 
 const PricingCard = () => {
-  const [duration, setDuration] = useState<Duration>("monthly");
+  const [duration, setDuration] = useState<Duration>("1year");
   const [payStyle, setPayStyle] = useState<PayStyle>("monthly");
   const isMonthly = duration === "monthly";
 
