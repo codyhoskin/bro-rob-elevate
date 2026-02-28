@@ -160,6 +160,23 @@
     box-shadow: 4px 4px 0px hsl(0 0% 0% / 0.06), inset 0 0 0 1px hsl(220 13% 82% / 0.3);
   }
 
+  .light .card-tier-starter {
+    background: linear-gradient(135deg, hsl(0 60% 97% / 0.9), hsl(0 40% 95% / 0.95)) !important;
+    border-color: hsl(var(--tier-starter) / 0.25);
+  }
+  .light .card-tier-intermediate {
+    background: linear-gradient(135deg, hsl(33 60% 96% / 0.9), hsl(33 40% 94% / 0.95)) !important;
+    border-color: hsl(var(--tier-intermediate) / 0.3);
+  }
+  .light .card-tier-advanced {
+    background: linear-gradient(135deg, hsl(213 60% 96% / 0.9), hsl(213 40% 94% / 0.95)) !important;
+    border-color: hsl(var(--tier-advanced) / 0.3);
+  }
+  .light .card-tier-pro {
+    background: linear-gradient(135deg, hsl(270 50% 96% / 0.9), hsl(270 35% 94% / 0.95)) !important;
+    border-color: hsl(var(--tier-pro) / 0.35);
+  }
+
   /* Tier card themes — subtle tinted backgrounds + borders */
   .card-tier-starter {
     border-color: hsl(var(--tier-starter) / 0.3);
