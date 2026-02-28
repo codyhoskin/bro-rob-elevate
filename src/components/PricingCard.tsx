@@ -205,22 +205,6 @@ const PricingCard = () => {
             </div>
           </div>
 
-          {/* Power-up indicator */}
-          {isMaxCommit && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 text-center"
-            >
-              <motion.p
-                animate={{ opacity: [0.7, 1, 0.7] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="text-xs text-brand-blue font-semibold tracking-wider uppercase"
-              >
-                ⚡ Maximum Commitment — Best Value ⚡
-              </motion.p>
-            </motion.div>
-          )}
 
           {/* Pay Style Toggle - Integrated labels */}
           <div className={`mb-10 transition-opacity duration-300 ${isMonthly ? "opacity-40 pointer-events-none" : ""}`}>
