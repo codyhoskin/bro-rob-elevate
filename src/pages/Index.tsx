@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import PricingCard from "@/components/PricingCard";
 import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
+import Biography from "@/components/Biography";
 
 const Index = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -36,6 +37,7 @@ const Index = () => {
         <PricingCard />
       </div>
       <AppDownload />
+      <Biography />
       <Footer />
     </div>
   );
