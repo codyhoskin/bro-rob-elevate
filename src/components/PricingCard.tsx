@@ -146,7 +146,18 @@ const PricingCard = () => {
   return (
     <section className="relative px-4 py-20 sm:py-28 comic-halftone">
       <div className="absolute inset-0 bg-gradient-dark opacity-80" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/5 blur-[150px]" />
+      <motion.div
+        key={duration}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] ${
+          duration === "monthly" ? "bg-[hsl(var(--tier-starter)/0.08)]" :
+          duration === "3month" ? "bg-[hsl(var(--tier-intermediate)/0.08)]" :
+          duration === "6month" ? "bg-[hsl(var(--tier-advanced)/0.08)]" :
+          "bg-[hsl(var(--tier-pro)/0.12)]"
+        }`}
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 40 }}
