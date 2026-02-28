@@ -9,7 +9,14 @@ const PRICING: Record<
   Duration,
   { monthly: number; upfront: number; months: number; label: string; tier: string; tierColor: string }
 > = {
-  monthly: { monthly: 299, upfront: 299, months: 1, label: "1 Month", tier: "Starter", tierColor: "text-brand-red" },
+  monthly: {
+    monthly: 299,
+    upfront: 299,
+    months: 1,
+    label: "1 Month",
+    tier: "Starter",
+    tierColor: "text-brand-red",
+  },
   "3month": {
     monthly: 229,
     upfront: 200,
@@ -20,13 +27,13 @@ const PRICING: Record<
   },
   "6month": {
     monthly: 209,
-    upfront: 183,
+    upfront: 183.33,
     months: 6,
     label: "6 Months",
     tier: "Dedicated",
     tierColor: "text-brand-blue",
   },
-  "1year": { monthly: 179, upfront: 158, months: 12, label: "1 Year", tier: "Elite", tierColor: "text-purple-400" },
+  "1year": { monthly: 179, upfront: 158.33, months: 12, label: "1 Year", tier: "Elite", tierColor: "text-purple-400" },
 };
 
 const CARD_THEMES: Record<Duration, string> = {
