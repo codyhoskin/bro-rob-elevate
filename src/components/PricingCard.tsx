@@ -96,13 +96,13 @@ const AnimatedPrice = React.forwardRef<HTMLSpanElement, { value: number }>(({ va
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(start + diff * eased));
+      setDisplay(parseFloat((start + diff * eased).toFixed(2)));
       if (progress < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
   }, [value]);
 
-  return <span ref={ref}>${display}</span>;
+  return <span ref={ref}>${display % 1 === 0 ? display : display.toFixed(2)}</span>;
 });
 AnimatedPrice.displayName = "AnimatedPrice";
 
@@ -355,13 +355,13 @@ const PricingCard = () => {
                       <>
                         <p className="text-muted-foreground text-sm font-body">
                           <span className="line-through opacity-50">${originalTotal}</span>
-                          <span className="text-brand-blue font-semibold ml-2">${total} total</span>
+                          <span className="text-brand-blue font-semibold ml-2">${parseFloat(total.toFixed(2))} total</span>
                         </p>
-                        <p className="text-sm font-bold text-brand-blue mt-1">You save ${originalTotal - total}!</p>
+                        <p className="text-sm font-bold text-brand-blue mt-1">You save ${parseFloat((originalTotal - total).toFixed(2))}!</p>
                       </>
                     ) : (
                       <p className="text-muted-foreground text-sm font-body">
-                        ${total} billed over {pricing.months} months
+                        ${parseFloat(total.toFixed(2))} billed over {pricing.months} months
                       </p>
                     )}
                   </div>
