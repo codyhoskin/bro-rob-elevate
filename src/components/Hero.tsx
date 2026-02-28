@@ -64,25 +64,45 @@ const Hero = () => {
               to
             </span>
 
-            {/* STUD */}
+            {/* STUD - Diamond Plate Metal */}
             <motion.span
               onHoverStart={() => setStudHover(true)}
               onHoverEnd={() => setStudHover(false)}
               animate={{
                 scale: studHover ? 1.08 : 1,
-                textShadow: [
-                  "0 0 10px hsl(213 100% 52% / 0.4), 0 0 30px hsl(213 100% 52% / 0.2)",
-                  "0 0 20px hsl(213 100% 52% / 0.6), 0 0 50px hsl(213 100% 52% / 0.3), 0 0 80px hsl(213 100% 52% / 0.15)",
-                  "0 0 10px hsl(213 100% 52% / 0.4), 0 0 30px hsl(213 100% 52% / 0.2)",
-                ],
               }}
               transition={{
                 scale: { type: "spring", stiffness: 300 },
-                textShadow: { repeat: Infinity, duration: 2, ease: "easeInOut" },
               }}
-              className="text-brand-blue font-display inline-block cursor-default"
+              className="font-display inline-block cursor-default relative"
+              style={{
+                background: `
+                  repeating-linear-gradient(
+                    45deg,
+                    hsl(220 10% 75%) 0px,
+                    hsl(220 5% 85%) 2px,
+                    hsl(220 10% 65%) 4px,
+                    hsl(220 5% 80%) 6px,
+                    hsl(220 10% 70%) 8px
+                  ),
+                  linear-gradient(
+                    180deg,
+                    hsl(220 10% 90%) 0%,
+                    hsl(220 8% 60%) 30%,
+                    hsl(220 10% 85%) 50%,
+                    hsl(220 8% 55%) 70%,
+                    hsl(220 10% 80%) 100%
+                  )
+                `,
+                backgroundBlendMode: 'overlay',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: `drop-shadow(0 2px 4px hsl(220 10% 20% / 0.6)) drop-shadow(0 0 15px hsl(220 20% 70% / 0.3))`,
+                WebkitTextStroke: '0.5px hsl(220 10% 60% / 0.3)',
+              }}
             >
-              STUD <span className="inline-block text-4xl sm:text-5xl md:text-6xl" role="img" aria-label="cool face">💪</span>
+              STUD <span className="inline-block text-4xl sm:text-5xl md:text-6xl" role="img" aria-label="cool face" style={{ WebkitTextFillColor: 'initial', WebkitTextStroke: 'initial', filter: 'none' }}>💪</span>
             </motion.span>
           </span>
         </h1>
