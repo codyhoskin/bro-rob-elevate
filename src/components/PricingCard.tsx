@@ -308,7 +308,7 @@ const PricingCard = () => {
                   if (!isMonthly) setPayStyle("upfront");
                 }}
               >
-                Pay In Full
+                Pay Annually
                 <span
                   className={`ml-1.5 text-[9px] font-bold px-1.5 py-0.5 rounded-full transition-colors duration-300 ${
                     payStyle === "upfront"
