@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import ThemeToggle from "./ThemeToggle";
 
 const Hero = () => {
   const [simpHover, setSimpHover] = useState(false);
@@ -91,12 +92,12 @@ const Hero = () => {
           Elite coaching that transforms your physique, your confidence, and your life.
         </motion.p>
 
-        {/* Scroll indicator */}
+        {/* Scroll indicator + Theme Toggle */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="mt-12"
+          className="mt-12 flex flex-col items-center gap-4"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -105,6 +106,7 @@ const Hero = () => {
           >
             <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50" />
           </motion.div>
+          <ThemeToggle />
         </motion.div>
       </motion.div>
     </section>
