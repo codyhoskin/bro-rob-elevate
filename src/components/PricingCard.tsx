@@ -216,7 +216,7 @@ const PricingCard = () => {
             <img src="/images/robwithweights.png" alt="Your Bro Rob" className="w-40 sm:w-48 mx-auto mb-5 drop-shadow-[0_0_30px_hsl(213,100%,52%,0.3)]" />
             <h2 className="font-display tracking-wide leading-tight">
               <span className="text-foreground block text-3xl sm:text-4xl">Train With</span>
-              <span className="text-brand-blue block text-5xl sm:text-6xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">
+              <span className="text-brand-blue block text-5xl sm:text-6xl font-black comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]" style={{ WebkitTextStroke: '1px hsl(213 100% 52% / 0.3)' }}>
                 {"Your Bro Rob".split("").map((char, i) => (
                   <motion.span
                     key={i}
