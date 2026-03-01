@@ -199,16 +199,7 @@ const PricingCard = () => {
         transition={{ duration: 0.7 }}
         className="relative z-10 max-w-lg mx-auto"
       >
-        <motion.div
-          animate={
-            isMaxCommit
-              ? {
-                  scale: [1, 1.005, 1],
-                  rotate: [0, 0.15, -0.15, 0],
-                }
-              : {}
-          }
-          transition={isMaxCommit ? { repeat: Infinity, duration: 2.5, ease: "easeInOut" } : {}}
+        <div
           className={`glass-card comic-panel rounded-2xl p-8 sm:p-10 transition-all duration-700 ${CARD_THEMES[duration]} shimmer`}
         >
           {/* Logo + Header */}
@@ -333,19 +324,12 @@ const PricingCard = () => {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-baseline justify-center gap-1">
-                  <motion.span
+                  <span
                     className="font-display text-6xl sm:text-7xl text-foreground"
-                    animate={{
-                      textShadow: [
-                        "0 0 8px hsl(210 40% 98% / 0.2), 0 0 20px hsl(210 40% 98% / 0.1)",
-                        "0 0 16px hsl(210 40% 98% / 0.4), 0 0 40px hsl(210 40% 98% / 0.15)",
-                        "0 0 8px hsl(210 40% 98% / 0.2), 0 0 20px hsl(210 40% 98% / 0.1)",
-                      ],
-                    }}
-                    transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
+                    style={{ textShadow: "0 0 12px hsl(210 40% 98% / 0.3), 0 0 30px hsl(210 40% 98% / 0.12)" }}
                   >
                     <AnimatedPrice value={monthlyRate} />
-                  </motion.span>
+                  </span>
                   <span className="text-muted-foreground text-lg font-body">/mo</span>
                 </div>
 
@@ -451,7 +435,7 @@ const PricingCard = () => {
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </motion.div>
     </section>
   );
