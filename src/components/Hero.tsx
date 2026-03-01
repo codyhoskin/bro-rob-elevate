@@ -28,10 +28,11 @@ const Hero = () => {
         <motion.img
           src="/images/logorob.png"
           alt="Your Bro Rob"
-          className="w-28 sm:w-32 md:w-36 mx-auto mb-6 drop-shadow-[0_0_25px_hsl(213,100%,52%,0.3)]"
+          className="w-28 sm:w-32 md:w-36 mx-auto mb-6 drop-shadow-[0_0_25px_hsl(213,100%,52%,0.3)] cursor-pointer"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}
+          whileHover={{ scale: 1.1, filter: "drop-shadow(0 0 20px rgba(255,255,255,0.4))" }}
         />
 
         {/* Brand name */}
@@ -108,7 +109,9 @@ const Hero = () => {
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
-                filter: `drop-shadow(0 2px 4px hsl(220 10% 20% / 0.6)) drop-shadow(0 0 15px hsl(220 20% 70% / 0.3))`,
+                filter: `drop-shadow(0 2px 4px hsl(220 10% 20% / 0.6)) drop-shadow(0 0 20px rgba(255,255,255,0.35))`,
+                transition: 'filter 0.3s ease',
+                ...(studHover ? { filter: `drop-shadow(0 2px 4px hsl(220 10% 20% / 0.6)) drop-shadow(0 0 35px rgba(255,255,255,0.7)) drop-shadow(0 0 60px rgba(255,255,255,0.3))` } : {}),
                 WebkitTextStroke: '0.5px hsl(220 10% 60% / 0.3)',
               }}
             >
