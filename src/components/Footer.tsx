@@ -41,8 +41,8 @@ const Footer = () => {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
           <div className="text-center sm:text-left flex flex-col items-center sm:items-start gap-2">
-            <img src="/images/logo.png" alt="Your Bro Rob Fitness" className="w-24" />
-            <p className="text-muted-foreground text-xs italic">"Discipline Builds Champions"</p>
+            <img src="/images/logorob.png" alt="Your Bro Rob Fitness" className="w-24" />
+            <p className="text-muted-foreground text-xs italic">"You just might be a simp!"</p>
           </div>
 
           <nav className="flex flex-wrap justify-center gap-6">
