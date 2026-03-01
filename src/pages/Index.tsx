@@ -34,10 +34,10 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background pointer-events-none" />
         
         <Hero />
+        <Biography />
         <PricingCard />
       </div>
       <AppDownload />
-      <Biography />
       <Footer />
     </div>
   );
