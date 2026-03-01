@@ -7,7 +7,7 @@ const Hero = () => {
   const [studHover, setStudHover] = useState(false);
 
   return (
-    <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden comic-speed-lines comic-halftone">
+    <section className="relative min-h-[70vh] flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-x-clip comic-speed-lines comic-halftone">
       {/* Theme toggle - top right */}
       <div className="absolute top-6 right-6 z-20">
         <ThemeToggle />
