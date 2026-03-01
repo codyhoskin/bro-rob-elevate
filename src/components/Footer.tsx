@@ -1,13 +1,4 @@
-import { Instagram, Twitter, Youtube, Mail, Send } from "lucide-react";
-import { useState } from "react";
-import { z } from "zod";
-import { useToast } from "@/hooks/use-toast";
-
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email").max(255),
-  message: z.string().trim().min(1, "Message is required").max(1000),
-});
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 
 const LINKS = [
   { label: "Programs", href: "#" },
@@ -18,88 +9,34 @@ const LINKS = [
 
 const SOCIALS = [
   { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Youtube, href: "#", label: "YouTube" },
-  { icon: Mail, href: "#", label: "Email" },
+  { icon: () => (
+    <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  ), href: "#", label: "X" },
+  { icon: Mail, href: "mailto:robertagarand@yourbrorob.com", label: "Email" },
 ];
 
+const WHATSAPP_URL = "https://wa.me/1234567890"; // Replace with actual WhatsApp number
+
 const Footer = () => {
-  const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sending, setSending] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const result = contactSchema.safeParse(form);
-    if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-      result.error.errors.forEach((err) => {
-        if (err.path[0]) fieldErrors[err.path[0] as string] = err.message;
-      });
-      setErrors(fieldErrors);
-      return;
-    }
-    setErrors({});
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      setForm({ name: "", email: "", message: "" });
-      toast({ title: "Message sent!", description: "We'll get back to you soon." });
-    }, 800);
-  };
-
   return (
     <footer className="relative border-t-2 border-foreground/10 bg-background/80 backdrop-blur-sm comic-halftone">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-30" />
       <div className="max-w-5xl mx-auto px-4 py-12">
-        {/* Contact Form */}
-        <div className="max-w-md mx-auto mb-14">
-          <h3 className="font-display text-2xl sm:text-3xl text-foreground text-center mb-1">Get In Touch</h3>
-          <p className="text-muted-foreground text-sm text-center mb-6">Have a question? Drop a message.</p>
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <div>
-              <input
-                type="text"
-                placeholder="Your Name"
-                maxLength={100}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full rounded-lg bg-muted/50 border border-border/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-              />
-              {errors.name && <p className="text-xs text-destructive mt-1">{errors.name}</p>}
-            </div>
-            <div>
-              <input
-                type="email"
-                placeholder="Your Email"
-                maxLength={255}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full rounded-lg bg-muted/50 border border-border/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-              />
-              {errors.email && <p className="text-xs text-destructive mt-1">{errors.email}</p>}
-            </div>
-            <div>
-              <textarea
-                placeholder="Your Message"
-                maxLength={1000}
-                rows={3}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className="w-full rounded-lg bg-muted/50 border border-border/50 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all resize-none"
-              />
-              {errors.message && <p className="text-xs text-destructive mt-1">{errors.message}</p>}
-            </div>
-            <button
-              type="submit"
-              disabled={sending}
-              className="w-full flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground font-semibold py-2.5 text-sm hover:bg-primary/90 transition-colors disabled:opacity-60"
-            >
-              <Send className="w-4 h-4" />
-              {sending ? "Sending..." : "Send Message"}
-            </button>
-          </form>
+        {/* Message Me Bro CTA */}
+        <div className="max-w-md mx-auto mb-14 text-center">
+          <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-2">Message Me Bro</h3>
+          <p className="text-muted-foreground text-sm mb-6">Got a question? Hit me up on WhatsApp.</p>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[hsl(142,70%,45%)] text-white font-semibold py-3 px-8 text-sm hover:bg-[hsl(142,70%,40%)] transition-colors"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Chat on WhatsApp
+          </a>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
