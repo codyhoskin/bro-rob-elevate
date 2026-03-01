@@ -174,7 +174,7 @@ const PricingCard = () => {
   const durations: Duration[] = ["monthly", "3month", "6month", "1year"];
 
   return (
-    <section id="pricing" className="relative px-4 py-20 sm:py-28 comic-halftone">
+    <section className="relative px-4 py-20 sm:py-28 comic-halftone">
       <div className="absolute inset-0 bg-gradient-dark opacity-80" />
       <motion.div
         key={duration}
@@ -355,16 +355,13 @@ const PricingCard = () => {
           </div>
 
           {/* CTA - dual color gradient (only this button) */}
-          <motion.a
-            href="https://buy.stripe.com/9B69AScaLbQi7qH2Ed0Ny0a"
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.button
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="block w-full py-4 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-lg tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--brand-blue)/0.4),0_0_80px_hsl(var(--brand-blue)/0.2)] mb-5 text-center"
+            className="w-full py-4 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-lg tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--brand-blue)/0.4),0_0_80px_hsl(var(--brand-blue)/0.2)] mb-5"
           >
             Train with your Bro
-          </motion.a>
+          </motion.button>
 
           {/* Checkout trust badges */}
           <div className="text-center text-xs text-muted-foreground mb-10 space-y-3">
