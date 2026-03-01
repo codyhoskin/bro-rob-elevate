@@ -32,7 +32,13 @@ const AppDownload = () => {
           transition={{ duration: 0.6 }}
           className="glass-card comic-panel rounded-2xl p-8 sm:p-12 max-w-xl mx-auto text-center mb-14"
         >
-          <img src="/images/phones.png" alt="Your Bro Rob App Screenshots" className="w-full max-w-md mx-auto mb-5 drop-shadow-[0_0_20px_hsl(213,100%,52%,0.2)]" />
+          <motion.img
+            src="/images/phones.png"
+            alt="Your Bro Rob App Screenshots"
+            className="w-full max-w-md mx-auto mb-5 drop-shadow-[0_0_20px_hsl(213,100%,52%,0.2)] cursor-pointer"
+            whileHover={{ scale: 1.05, y: -5, filter: "drop-shadow(0 0 30px hsl(213,100%,52%,0.4))" }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          />
 
           <motion.div
             onHoverStart={() => setTitleHovered(true)}
@@ -95,9 +101,15 @@ const AppDownload = () => {
               whileInView={{ opacity: 1, y: 0, rotate: i === 1 ? 1 : i === 0 ? -1 : 2 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="relative"
+              whileHover={{
+                scale: 1.05,
+                y: -4,
+                rotate: 0,
+                transition: { type: "spring", stiffness: 400, damping: 15 },
+              }}
+              className="relative cursor-default"
             >
-              <div className="relative bg-muted/30 border-2 border-foreground/10 rounded-2xl p-5 comic-halftone">
+              <div className="relative bg-muted/30 border-2 border-foreground/10 rounded-2xl p-5 comic-halftone transition-colors duration-300 hover:border-brand-blue/30 hover:bg-muted/50">
                 <p className="text-sm text-foreground/90 font-body italic leading-relaxed">
                   "{t.text}"
                 </p>

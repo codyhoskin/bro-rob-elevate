@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
 
 const LINKS = [
@@ -26,22 +27,37 @@ const Footer = () => {
       <div className="max-w-5xl mx-auto px-4 py-12">
         {/* Message Me Bro CTA */}
         <div className="max-w-md mx-auto mb-14 text-center">
-          <h3 className="font-display text-2xl sm:text-3xl text-foreground mb-2">Message Me Bro</h3>
+          <motion.h3
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-display text-2xl sm:text-3xl text-foreground mb-2"
+          >
+            Message Me Bro
+          </motion.h3>
           <p className="text-muted-foreground text-sm mb-6">Got a question? Hit me up on WhatsApp.</p>
-          <a
+          <motion.a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[hsl(142,70%,45%)] text-white font-semibold py-3 px-8 text-sm hover:bg-[hsl(142,70%,40%)] transition-colors"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[hsl(142,70%,45%)] text-white font-semibold py-3 px-8 text-sm hover:bg-[hsl(142,70%,40%)] transition-all duration-300 hover:shadow-[0_0_30px_hsl(142,70%,45%,0.3)]"
           >
             <MessageCircle className="w-5 h-5" />
             Chat on WhatsApp
-          </a>
+          </motion.a>
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
           <div className="text-center sm:text-left flex flex-col items-center sm:items-start gap-2">
-            <img src="/images/logorob.png" alt="Your Bro Rob Fitness" className="w-24" />
+            <motion.img
+              src="/images/logorob.png"
+              alt="Your Bro Rob Fitness"
+              className="w-24 cursor-pointer"
+              whileHover={{ scale: 1.1, filter: "drop-shadow(0 0 15px rgba(255,255,255,0.3))" }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
             <p className="text-muted-foreground text-xs italic">"You just might be a simp!"</p>
           </div>
 
