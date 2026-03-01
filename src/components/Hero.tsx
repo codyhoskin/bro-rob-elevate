@@ -28,7 +28,7 @@ const Hero = () => {
         <motion.img
           src="/images/logorob.png"
           alt="Your Bro Rob"
-          className="w-24 sm:w-28 md:w-32 mx-auto mb-6 rounded-full drop-shadow-[0_0_25px_hsl(213,100%,52%,0.3)]"
+          className="w-28 sm:w-32 md:w-36 mx-auto mb-6 drop-shadow-[0_0_25px_hsl(213,100%,52%,0.3)]"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.1, duration: 0.5 }}
