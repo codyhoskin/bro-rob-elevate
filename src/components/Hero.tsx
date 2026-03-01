@@ -47,12 +47,12 @@ const Hero = () => {
         </motion.p>
 
         {/* Main headline */}
-        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-6 comic-text-stroke">
+        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-none mb-6 comic-text-stroke overflow-visible">
           <span className="block text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl mb-2 tracking-wider">
             Go From
           </span>
 
-          <span className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 flex-wrap">
+          <span className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 flex-wrap overflow-visible">
             {/* SIMP + sad face */}
             <span className="flex items-center gap-1 sm:gap-2 overflow-visible">
               <span className="text-3xl sm:text-4xl md:text-5xl self-center mr-0 sm:mr-1" role="img" aria-label="thumbs down">👎</span>
