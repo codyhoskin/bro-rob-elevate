@@ -41,6 +41,16 @@ const Biography = () => {
             No gimmicks. No gatekeeping. Just proven methods from someone who's lived it.
           </p>
         </motion.div>
+
+        <motion.img
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          src="/images/bioImage.png"
+          alt="Robert Agarand - Competition & Training Photos"
+          className="mt-10 w-full rounded-2xl shadow-lg"
+        />
       </div>
     </section>
   );
