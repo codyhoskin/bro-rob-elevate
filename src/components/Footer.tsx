@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { Instagram, Mail, MessageCircle } from "lucide-react";
 
 const LINKS = [
-  { label: "Programs", href: "#" },
-  { label: "Transformations", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Programs", href: "#pricing" },
+  { label: "App", href: "https://app.mypthub.net/register/yourbrorob", external: true },
+  { label: "Contact", href: "mailto:robertagarand@yourbrorob.com" },
   { label: "Terms", href: "#" },
 ];
 
@@ -66,6 +66,7 @@ const Footer = () => {
               <a
                 key={link.label}
                 href={link.href}
+                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 {link.label}
