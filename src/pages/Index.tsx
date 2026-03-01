@@ -4,7 +4,6 @@ import PricingCard from "@/components/PricingCard";
 import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
 import Biography from "@/components/Biography";
-import InstagramFeed from "@/components/InstagramFeed";
 
 const Index = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -39,7 +38,6 @@ const Index = () => {
       </div>
       <AppDownload />
       <Biography />
-      <InstagramFeed />
       <Footer />
     </div>
   );
