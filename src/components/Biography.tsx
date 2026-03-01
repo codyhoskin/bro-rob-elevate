@@ -47,9 +47,10 @@ const Biography = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
+          whileHover={{ scale: 1.02 }}
           src="/images/bioImage.png"
           alt="Robert Agarand - Competition & Training Photos"
-          className="mt-10 w-full rounded-2xl shadow-lg"
+          className="mt-10 w-full rounded-2xl shadow-lg cursor-pointer transition-shadow duration-300 hover:shadow-[0_0_40px_hsl(213,100%,52%,0.15)]"
         />
       </div>
     </section>
