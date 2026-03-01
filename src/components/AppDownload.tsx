@@ -3,16 +3,16 @@ import { useState } from "react";
 
 const TESTIMONIALS = [
   {
-    text: "Rob changed my life. Down 40lbs and stronger than ever.",
+    text: "I use to pay for Only Fans, but now I have a real purpose!",
     name: "Mike D.",
   },
   {
-    text: "Best investment I ever made. The accountability is next level.",
+    text: "Best Investment. I use to pee on my balls until I met my bro Rob.",
     name: "Jake R.",
   },
   {
-    text: "From couch potato to competing. This app is a game changer.",
-    name: "Chris T.",
+    text: "Rob is sexy",
+    name: "Some Girl",
   },
 ];
 
