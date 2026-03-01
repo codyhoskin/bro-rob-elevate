@@ -11,7 +11,7 @@ const TESTIMONIALS = [
     name: "Jake R.",
   },
   {
-    text: "Rob is sexy",
+    text: "Rob is sooo sexy. There are way too many simps out there",
     name: "Some Girl",
   },
 ];
