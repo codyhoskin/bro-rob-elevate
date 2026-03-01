@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Apple } from "lucide-react";
 import { useState } from "react";
 
 const TESTIMONIALS = [
@@ -63,36 +62,26 @@ const AppDownload = () => {
             Track your workouts, chat with Rob, and watch your transformation unfold.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
               href="https://apps.apple.com/us/app/my-pt-hub/id1473947709"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -2 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-foreground text-background font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+              className="transition-all duration-300"
             >
-              <Apple className="w-5 h-5" />
-              <div className="text-left">
-                <div className="text-[10px] opacity-70 leading-none">Download on the</div>
-                <div className="text-sm font-bold leading-tight">App Store</div>
-              </div>
+              <img src="/images/app-store-badge.svg" alt="Download on the App Store" className="h-[50px]" />
             </motion.a>
             <motion.a
               href="https://play.google.com/store/apps/details?id=net.mypthub.kilo"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.03, y: -2 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-foreground text-background font-semibold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]"
+              className="transition-all duration-300"
             >
-              <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.396 12l2.302-3.492zM5.864 2.658L16.8 8.99l-2.302 2.302L5.864 2.658z" />
-              </svg>
-              <div className="text-left">
-                <div className="text-[10px] opacity-70 leading-none">Get it on</div>
-                <div className="text-sm font-bold leading-tight">Google Play</div>
-              </div>
+              <img src="/images/google-play-badge.png" alt="Get it on Google Play" className="h-[73px] -my-[11px]" />
             </motion.a>
           </div>
         </motion.div>
