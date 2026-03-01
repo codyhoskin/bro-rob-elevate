@@ -126,8 +126,32 @@ const Hero = () => {
           transition={{ delay: 0.6 }}
           className="text-muted-foreground font-body text-base sm:text-lg max-w-md mx-auto mt-4"
         >
-          Elite coaching that transforms your physique, your confidence, and your life.
+          Online Coaching for Busy Men 35–45. No bro-science, no starvation, no 2-hour gym sessions.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
+        >
+          <motion.a
+            href="#pricing"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-8 py-3 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-sm tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_hsl(var(--brand-blue)/0.4)]"
+          >
+            View Packages
+          </motion.a>
+          <motion.a
+            href="mailto:robertagarand@yourbrorob.com"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+            className="px-8 py-3 rounded-xl border-2 border-foreground/20 text-foreground font-bold text-sm tracking-wide transition-all duration-300 hover:border-brand-blue/50 hover:shadow-[0_0_20px_hsl(var(--brand-blue)/0.2)]"
+          >
+            Claim Your Spot
+          </motion.a>
+        </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
