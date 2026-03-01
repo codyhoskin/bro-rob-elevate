@@ -63,12 +63,12 @@ const Hero = () => {
                   scale: [1, 0.97, 1],
                 } : {}}
                 transition={{ duration: 0.5 }}
-                className="text-gradient-rainbow font-fun inline-block cursor-default pr-3"
+                className="text-gradient-rainbow font-fun inline-block cursor-default pr-1"
                 style={{ transform: "rotate(-3deg)" }}
               >
               Simp
               </motion.span>
-              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-2 sm:ml-3" role="img" aria-label="thumbs down">👎</span>
+              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-0 sm:ml-1" role="img" aria-label="thumbs down">👎</span>
             </span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">
