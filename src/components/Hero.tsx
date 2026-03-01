@@ -55,6 +55,7 @@ const Hero = () => {
           <span className="flex items-center justify-center gap-2 sm:gap-4 md:gap-6 flex-wrap">
             {/* SIMP + sad face */}
             <span className="flex items-center gap-1 sm:gap-2 overflow-visible">
+              <span className="text-3xl sm:text-4xl md:text-5xl self-center mr-0 sm:mr-1" role="img" aria-label="thumbs down">👎</span>
               <motion.span
                 onHoverStart={() => setSimpHover(true)}
                 onHoverEnd={() => setSimpHover(false)}
@@ -63,12 +64,11 @@ const Hero = () => {
                   scale: [1, 0.97, 1],
                 } : {}}
                 transition={{ duration: 0.5 }}
-                className="text-gradient-rainbow font-fun inline-block cursor-default pr-1"
+                className="text-gradient-rainbow font-fun inline-block cursor-default"
                 style={{ transform: "rotate(-3deg)" }}
               >
               Simp
               </motion.span>
-              <span className="text-3xl sm:text-4xl md:text-5xl self-center ml-0 sm:ml-1" role="img" aria-label="thumbs down">👎</span>
             </span>
 
             <span className="text-muted-foreground font-display text-3xl sm:text-4xl md:text-5xl self-center">
