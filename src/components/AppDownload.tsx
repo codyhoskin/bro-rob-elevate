@@ -41,10 +41,12 @@ const AppDownload = () => {
             <Smartphone className="w-7 h-7 text-primary-foreground" />
           </motion.div>
 
+          <img src="/images/simpto.png" alt="Transformation - From Simp to Stud" className="w-full max-w-xs mx-auto mb-5 drop-shadow-[0_0_20px_hsl(213,100%,52%,0.2)]" />
+
           <h2 className="font-display tracking-wide leading-tight mb-2">
             <span className="text-foreground block text-2xl sm:text-3xl">Get The</span>
             <span className="text-brand-blue block text-4xl sm:text-5xl comic-text-stroke drop-shadow-[0_0_15px_hsl(213,100%,52%,0.4)]">
-              Bro Rob App
+              Your Bro Rob App
             </span>
           </h2>
           <p className="text-muted-foreground font-body text-sm mt-3 mb-7 max-w-sm mx-auto">
