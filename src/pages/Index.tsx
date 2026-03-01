@@ -21,7 +21,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-dark comic-bg">
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-x-clip">
         {/* Comic story background - parallax */}
         <img
           ref={imgRef}
