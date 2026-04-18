@@ -380,7 +380,7 @@ const PricingCard = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="block text-center w-full py-4 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-lg tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--brand-blue)/0.4),0_0_80px_hsl(var(--brand-blue)/0.2)] mb-5"
+            className="relative z-10 block text-center w-full py-4 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-lg tracking-wide uppercase ring-1 ring-foreground/10 shadow-[0_0_30px_hsl(var(--brand-blue)/0.35),0_0_60px_hsl(var(--brand-red)/0.2)] transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--brand-blue)/0.5),0_0_80px_hsl(var(--brand-red)/0.3)] mb-5"
           >
             Train with your Bro
           </motion.a>
