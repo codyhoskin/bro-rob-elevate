@@ -18,7 +18,7 @@ const SOCIALS = [
   { icon: Mail, href: "mailto:robertagarand@yourbrorob.com", label: "Email" },
 ];
 
-const WHATSAPP_URL = "https://wa.me/1234567890"; // Replace with actual WhatsApp number
+const WHATSAPP_URL = "https://wa.me/15879179552";
 
 const Footer = () => {
   return (
