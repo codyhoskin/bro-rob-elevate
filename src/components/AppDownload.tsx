@@ -25,8 +25,9 @@ const AppDownload = () => {
         src="/images/comic-story.jpg"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none select-none mix-blend-luminosity"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none select-none mix-blend-luminosity [mask-image:linear-gradient(to_bottom,transparent_0%,black_15%,black_70%,transparent_100%)]"
       />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-20" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
