@@ -50,6 +50,25 @@ const TIER_BTN_ACTIVE: Record<Duration, string> = {
   "1year": "bg-purple-500 text-primary-foreground shadow-lg shadow-purple-500/20",
 };
 
+const STRIPE_LINKS: Record<Duration, Record<PayStyle, string>> = {
+  monthly: {
+    monthly: "https://buy.stripe.com/9B69AScaLbQi7qH2Ed0Ny0a",
+    upfront: "https://buy.stripe.com/9B69AScaLbQi7qH2Ed0Ny0a",
+  },
+  "3month": {
+    monthly: "https://buy.stripe.com/eVq5kC2Ab3jM3ar6Ut0Ny05",
+    upfront: "https://buy.stripe.com/00w00i5Mn8E66mDemV0Ny09",
+  },
+  "6month": {
+    monthly: "https://buy.stripe.com/28EbJ03EfcUm3ar92B0Ny04",
+    upfront: "https://buy.stripe.com/5kQ8wOb6HbQi6mD7Yx0Ny08",
+  },
+  "1year": {
+    monthly: "https://buy.stripe.com/14A7sK7UvdYqbGX92B0Ny03",
+    upfront: "https://buy.stripe.com/aFaeVcgr11bE8uL6Ut0Ny07",
+  },
+};
+
 const FEATURES = [
   {
     title: "1-on-1 Custom Training Program",
@@ -355,13 +374,16 @@ const PricingCard = () => {
           </div>
 
           {/* CTA - dual color gradient (only this button) */}
-          <motion.button
+          <motion.a
+            href={STRIPE_LINKS[duration][payStyle]}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.03, y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="w-full py-4 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-lg tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--brand-blue)/0.4),0_0_80px_hsl(var(--brand-blue)/0.2)] mb-5"
+            className="block text-center w-full py-4 rounded-xl bg-gradient-brand text-primary-foreground font-bold text-lg tracking-wide transition-all duration-300 hover:shadow-[0_0_40px_hsl(var(--brand-blue)/0.4),0_0_80px_hsl(var(--brand-blue)/0.2)] mb-5"
           >
             Train with your Bro
-          </motion.button>
+          </motion.a>
 
           {/* Checkout trust badges */}
           <div className="text-center text-xs text-muted-foreground mb-10 space-y-3">
