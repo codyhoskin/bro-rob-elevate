@@ -115,13 +115,13 @@ const AppDownload = () => {
               }}
               className="relative cursor-default"
             >
-              <div className="relative bg-muted/30 border-2 border-foreground/10 rounded-2xl p-5 comic-halftone transition-colors duration-300 hover:border-brand-blue/30 hover:bg-muted/50">
+              <div className="relative bg-background/85 backdrop-blur-sm border-2 border-foreground/10 rounded-2xl p-5 comic-halftone transition-colors duration-300 hover:border-brand-blue/30 hover:bg-background/95">
                 <p className="text-sm text-foreground/90 font-body italic leading-relaxed">
                   "{t.text}"
                 </p>
                 <p className="mt-3 font-display text-sm text-brand-blue">{t.name}</p>
                 <div
-                  className="absolute -bottom-2 left-6 w-4 h-4 bg-muted/30 border-b-2 border-r-2 border-foreground/10"
+                  className="absolute -bottom-2 left-6 w-4 h-4 bg-background/85 border-b-2 border-r-2 border-foreground/10"
                   style={{ transform: "rotate(45deg)" }}
                 />
               </div>
