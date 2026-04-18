@@ -22,7 +22,7 @@ const WHATSAPP_URL = "https://wa.me/1234567890"; // Replace with actual WhatsApp
 
 const Footer = () => {
   return (
-    <footer className="relative border-t-2 border-foreground/10 bg-background/80 backdrop-blur-sm comic-halftone">
+    <footer className="relative border-t-2 border-foreground/10 bg-background/80 backdrop-blur-sm">
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-30" />
       <div className="max-w-5xl mx-auto px-4 py-12">
         {/* Message Me Bro CTA */}
