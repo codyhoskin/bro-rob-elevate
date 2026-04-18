@@ -52,20 +52,20 @@ const TIER_BTN_ACTIVE: Record<Duration, string> = {
 
 const STRIPE_LINKS: Record<Duration, Record<PayStyle, string>> = {
   monthly: {
-    monthly: "https://buy.stripe.com/9B69AScaLbQi7qH2Ed0Ny0a",
-    upfront: "https://buy.stripe.com/9B69AScaLbQi7qH2Ed0Ny0a",
+    monthly: "https://buy.stripe.com/aFaeVcgr11bE8uL6Ut0Ny07",
+    upfront: "https://buy.stripe.com/aFaeVcgr11bE8uL6Ut0Ny07",
   },
   "3month": {
-    monthly: "https://buy.stripe.com/eVq5kC2Ab3jM3ar6Ut0Ny05",
-    upfront: "https://buy.stripe.com/00w00i5Mn8E66mDemV0Ny09",
+    monthly: "https://buy.stripe.com/5kQ8wOb6HbQi6mD7Yx0Ny08",
+    upfront: "https://buy.stripe.com/14A7sK7UvdYqbGX92B0Ny03",
   },
   "6month": {
-    monthly: "https://buy.stripe.com/28EbJ03EfcUm3ar92B0Ny04",
-    upfront: "https://buy.stripe.com/5kQ8wOb6HbQi6mD7Yx0Ny08",
+    monthly: "https://buy.stripe.com/00w00i5Mn8E66mDemV0Ny09",
+    upfront: "https://buy.stripe.com/28EbJ03EfcUm3ar92B0Ny04",
   },
   "1year": {
-    monthly: "https://buy.stripe.com/14A7sK7UvdYqbGX92B0Ny03",
-    upfront: "https://buy.stripe.com/aFaeVcgr11bE8uL6Ut0Ny07",
+    monthly: "https://buy.stripe.com/9B69AScaLbQi7qH2Ed0Ny0a",
+    upfront: "https://buy.stripe.com/eVq5kC2Ab3jM3ar6Ut0Ny05",
   },
 };
 
