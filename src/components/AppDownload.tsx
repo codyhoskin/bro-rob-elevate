@@ -21,6 +21,12 @@ const AppDownload = () => {
   return (
     <section className="relative px-4 py-20 sm:py-28 comic-halftone overflow-hidden">
       <div className="absolute inset-0 bg-gradient-dark opacity-90" />
+      <img
+        src="/images/comic-story.jpg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none select-none mix-blend-luminosity"
+      />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-brand opacity-20" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
