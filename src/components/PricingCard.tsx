@@ -380,7 +380,7 @@ const PricingCard = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.97 }}
-            className="paywall-cta-button relative z-10 block w-full rounded-xl py-4 text-center font-bold text-lg tracking-wide uppercase ring-2 ring-primary-foreground/30 transition-transform duration-300 mb-5"
+            className="paywall-cta-button relative z-10 block w-full rounded-xl py-4 text-center font-bold text-lg tracking-wide uppercase ring-2 ring-primary-foreground/30 transition-transform duration-300 mb-5 text-secondary bg-[#2499ff]"
           >
             Train with your Bro
           </motion.a>
