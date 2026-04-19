@@ -378,13 +378,9 @@ const PricingCard = () => {
             href={STRIPE_LINKS[duration][payStyle]}
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.03, y: -2 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.97 }}
-            style={{
-              background: "linear-gradient(135deg, hsl(var(--brand-red)), hsl(var(--brand-blue)))",
-              color: "#ffffff",
-            }}
-            className="relative z-10 block text-center w-full py-4 rounded-xl font-bold text-lg tracking-wide uppercase ring-2 ring-white/30 border border-white/20 shadow-[0_8px_24px_-4px_hsl(var(--brand-red)/0.6),0_8px_24px_-4px_hsl(var(--brand-blue)/0.5)] transition-all duration-300 hover:shadow-[0_12px_32px_-4px_hsl(var(--brand-red)/0.7),0_12px_32px_-4px_hsl(var(--brand-blue)/0.6)] mb-5 drop-shadow-lg"
+            className="paywall-cta-button relative z-10 block w-full rounded-xl py-4 text-center font-bold text-lg tracking-wide uppercase ring-2 ring-primary-foreground/30 transition-transform duration-300 mb-5"
           >
             Train with your Bro
           </motion.a>
