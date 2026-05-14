@@ -75,7 +75,7 @@ const LeadMagnet = () => {
           {/* Cover / Visual */}
           <div className="relative flex justify-center">
             <motion.img
-              src="/images/simpto.png"
+              src="/images/ebook-cover.jpg"
               alt="From Simp To Stud ebook cover by Your Bro Rob"
               initial={{ rotate: -6 }}
               whileHover={{ rotate: 0, scale: 1.04 }}
