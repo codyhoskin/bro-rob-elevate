@@ -4,6 +4,7 @@ import PricingCard from "@/components/PricingCard";
 import AppDownload from "@/components/AppDownload";
 import Footer from "@/components/Footer";
 import Biography from "@/components/Biography";
+import LeadMagnet from "@/components/LeadMagnet";
 
 const Index = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -35,6 +36,7 @@ const Index = () => {
         
         <Hero />
         <Biography />
+        <LeadMagnet />
         <PricingCard />
       </div>
       <AppDownload />
