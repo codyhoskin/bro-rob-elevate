@@ -74,25 +74,15 @@ const LeadMagnet = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center bg-card/60 backdrop-blur border-2 border-primary/20 rounded-3xl p-6 md:p-10 shadow-2xl">
           {/* Cover / Visual */}
           <div className="relative flex justify-center">
-            <motion.div
+            <motion.img
+              src="/images/simpto.png"
+              alt="From Simp To Stud ebook cover by Your Bro Rob"
               initial={{ rotate: -6 }}
               whileHover={{ rotate: 0, scale: 1.04 }}
               transition={{ type: "spring", stiffness: 200 }}
-              className="relative w-full max-w-xs aspect-[3/4] rounded-2xl bg-gradient-to-br from-brand-red via-brand-red/80 to-brand-blue p-8 flex flex-col justify-between shadow-[0_25px_60px_-15px_hsl(var(--brand-red)/0.6)] ring-2 ring-primary-foreground/20"
-            >
-              <BookOpen className="w-10 h-10 text-primary-foreground" aria-hidden="true" />
-              <div>
-                <p className="text-primary-foreground/80 text-xs uppercase tracking-[0.25em] mb-2">
-                  Free Ebook
-                </p>
-                <h3 className="text-primary-foreground font-display text-3xl leading-tight uppercase">
-                  From Simp <span className="text-secondary">To Stud</span>
-                </h3>
-              </div>
-              <p className="text-primary-foreground/90 text-xs font-body italic">
-                by Your Bro Rob
-              </p>
-            </motion.div>
+              className="relative w-full max-w-xs aspect-[3/4] object-cover rounded-2xl shadow-[0_25px_60px_-15px_hsl(var(--brand-red)/0.6)] ring-2 ring-primary-foreground/20"
+              loading="lazy"
+            />
           </div>
 
           {/* Form */}
